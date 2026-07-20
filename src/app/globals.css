@@ -362,6 +362,249 @@ a:focus-visible {
   height: auto;
 }
 
+.noki-why {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 90px 40px 110px;
+}
+
+.noki-why-intro {
+  max-width: 680px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.noki-why-kicker {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border: 1px solid rgba(255, 213, 0, 0.3);
+  border-radius: 16px;
+  background: rgba(255, 213, 0, 0.1);
+  color: var(--color-accent-300);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.noki-why-title {
+  margin: 0 0 16px;
+  font-family: var(--active-font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.noki-why-title span {
+  color: var(--color-cyan);
+}
+
+.noki-why-body {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.65);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.noki-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 36px;
+}
+
+.noki-why-features {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.noki-why-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.noki-why-feature-icon {
+  display: flex;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.noki-why-feature-icon svg {
+  display: block;
+}
+
+.noki-why-feature-title {
+  margin: 0 0 5px;
+  font-family: var(--active-font-heading);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.noki-why-feature-desc {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.62);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.noki-why-card {
+  position: relative;
+  padding: 28px;
+  border: 1px solid var(--color-divider);
+  border-radius: 18px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.noki-why-badge {
+  position: absolute;
+  top: -16px;
+  right: 20px;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-family: var(--active-font-heading);
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(255, 213, 0, 0.35);
+}
+
+.noki-why-ring-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-bottom: 22px;
+}
+
+.noki-why-ring {
+  flex: none;
+  transform: rotate(-90deg);
+}
+
+.noki-ring-fill {
+  stroke-dashoffset: 6px;
+  transition: stroke-dashoffset 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.noki-why-ring-center {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 128px;
+  height: 128px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.noki-why-ring-center div {
+  font-family: var(--active-font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.noki-why-ring-center span {
+  color: rgba(238, 241, 250, 0.45);
+  font-size: 15px;
+}
+
+.noki-why-ring-center p {
+  margin: 2px 0 0;
+  color: rgba(238, 241, 250, 0.5);
+  font-size: 10px;
+  text-align: center;
+  white-space: pre-line;
+}
+
+.noki-why-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noki-why-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(238, 241, 250, 0.72);
+  font-size: 12.5px;
+}
+
+.noki-why-legend-item span {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+}
+
+.noki-why-bars {
+  padding-top: 18px;
+  border-top: 1px solid var(--color-divider);
+}
+
+.noki-why-bar-title {
+  margin-bottom: 12px;
+  color: rgba(238, 241, 250, 0.4);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.noki-why-bar-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.noki-why-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  color: rgba(238, 241, 250, 0.55);
+  font-size: 12px;
+}
+
+.noki-why-bar-track {
+  height: 7px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-surface-2);
+}
+
+.noki-bar-fill-a,
+.noki-bar-fill-b {
+  height: 100%;
+  border-radius: 4px;
+}
+
+.noki-bar-fill-a {
+  width: 34%;
+  background: #ff8a8a;
+}
+
+.noki-bar-fill-b {
+  width: 92%;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-accent));
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -374,6 +617,40 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-reveal].is-in .noki-ring-fill {
+    stroke-dashoffset: 6px;
+  }
+
+  [data-reveal] .noki-ring-fill {
+    stroke-dashoffset: 339.3;
+  }
+
+  [data-reveal] .noki-bar-fill-a,
+  [data-reveal] .noki-bar-fill-b {
+    width: 0%;
+  }
+
+  [data-reveal].is-in .noki-bar-fill-a {
+    width: 34%;
+  }
+
+  [data-reveal].is-in .noki-bar-fill-b {
+    width: 92%;
+  }
+
   @keyframes floaty {
     0%,
     100% {
@@ -397,6 +674,15 @@ a:focus-visible {
 
   .noki-hero-dashboard {
     animation: floaty 7s ease-in-out infinite;
+  }
+
+  .noki-why-badge {
+    animation: floaty 5s ease-in-out infinite;
+  }
+
+  .noki-bar-fill-a,
+  .noki-bar-fill-b {
+    transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 }
 
