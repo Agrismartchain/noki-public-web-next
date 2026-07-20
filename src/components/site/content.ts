@@ -79,6 +79,22 @@ export const SITE_COPY: Record<
         desc: string;
       }[];
     };
+    courier: {
+      appName: string;
+      prep: string;
+      missionLabel: string;
+      missionText: string;
+      codLabel: string;
+      codText: string;
+      incidentLabel: string;
+      incidentTag1: string;
+      incidentTag2: string;
+      confirmSent: string;
+      kicker: string;
+      title: string;
+      body: string;
+      benefits: string[];
+    };
   }
 > = {
   fr: {
@@ -259,6 +275,28 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    courier: {
+      appName: "NOKI Livreur",
+      prep: "En préparation",
+      missionLabel: "Mission assignée",
+      missionText: "Livraison — Zone Cocody",
+      codLabel: "COD à déclarer",
+      codText: "Montant à saisir",
+      incidentLabel: "Signaler un incident",
+      incidentTag1: "Client absent",
+      incidentTag2: "Colis endommagé",
+      confirmSent: "Confirmation de progression envoyée",
+      kicker: "Application livreur — en préparation",
+      title: "Un compagnon terrain pensé pour vos livreurs.",
+      body:
+        "Une application dédiée est en préparation pour accompagner les livreurs directement sur le terrain : mission assignée, statut de progression, déclaration du cash collecté et remontée d'incident en quelques gestes.",
+      benefits: [
+        "Mission assignée et statut clair",
+        "Déclaration du cash en quelques gestes",
+        "Remontée d'incident simplifiée",
+        "Confirmation de progression en temps réel",
+      ],
+    },
   },
   en: {
     nav: {
@@ -411,6 +449,28 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    courier: {
+      appName: "NOKI Courier",
+      prep: "In development",
+      missionLabel: "Assigned mission",
+      missionText: "Delivery — Cocody zone",
+      codLabel: "COD to declare",
+      codText: "Amount to enter",
+      incidentLabel: "Report an incident",
+      incidentTag1: "Customer absent",
+      incidentTag2: "Damaged parcel",
+      confirmSent: "Progress confirmation sent",
+      kicker: "Courier app — in development",
+      title: "A field companion built for your couriers.",
+      body:
+        "A dedicated app is in development to support couriers directly in the field: assigned missions, progress status, collected-cash declaration and incident reporting in a few taps.",
+      benefits: [
+        "Assigned mission and clear status",
+        "Cash declaration in a few taps",
+        "Simplified incident reporting",
+        "Real-time progress confirmation",
+      ],
+    },
   },
   ar: {
     nav: {
@@ -561,6 +621,28 @@ export const SITE_COPY: Record<
           title: "التحقق البشري النهائي",
           desc: "لا إجراء على طلب أو دفعة دون تأكيد من مشرف.",
         },
+      ],
+    },
+    courier: {
+      appName: "NOKI للتوصيل",
+      prep: "قيد التحضير",
+      missionLabel: "مهمة مُسندة",
+      missionText: "توصيل — منطقة كوكودي",
+      codLabel: "مبلغ الدفع عند الاستلام",
+      codText: "المبلغ المطلوب إدخاله",
+      incidentLabel: "الإبلاغ عن حادثة",
+      incidentTag1: "غياب العميل",
+      incidentTag2: "طرد تالف",
+      confirmSent: "تم إرسال تأكيد التقدم",
+      kicker: "تطبيق التوصيل — قيد التحضير",
+      title: "رفيق ميداني مصمّم لعمال التوصيل لديك.",
+      body:
+        "تطبيق مخصّص قيد التحضير لمرافقة عمال التوصيل مباشرة في الميدان: مهمة مُسندة، حالة التقدم، الإعلان عن النقد المُحصّل، والإبلاغ عن الحوادث ببضع لمسات.",
+      benefits: [
+        "مهمة مُسندة وحالة واضحة",
+        "الإعلان عن النقد ببضع لمسات",
+        "إبلاغ مبسّط عن الحوادث",
+        "تأكيد التقدم في الوقت الفعلي",
       ],
     },
   },

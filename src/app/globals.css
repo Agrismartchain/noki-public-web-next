@@ -1228,6 +1228,246 @@ a:focus-visible {
   line-height: normal;
 }
 
+.noki-courier {
+  display: grid;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 60px 40px 130px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 70px;
+  align-items: center;
+}
+
+.noki-courier-phone-stage {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.noki-courier-phone-glow {
+  position: absolute;
+  inset: -60px;
+  background: radial-gradient(circle at 50% 40%, rgba(63, 212, 255, 0.18), transparent 65%);
+  pointer-events: none;
+}
+
+.noki-courier-phone {
+  position: relative;
+  width: 280px;
+  height: 560px;
+  overflow: hidden;
+  border: 6px solid #14192b;
+  border-radius: 38px;
+  background: #05070d;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+.noki-courier-notch {
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  width: 70px;
+  height: 18px;
+  border-radius: 10px;
+  background: #14192b;
+  transform: translateX(-50%);
+}
+
+.noki-courier-screen {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  gap: 12px;
+  padding: 44px 16px 16px;
+}
+
+.noki-courier-logo-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 6px 0 2px;
+}
+
+.noki-courier-logo {
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(255, 213, 0, 0.25);
+}
+
+.noki-courier-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.noki-courier-app-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.noki-courier-app-name {
+  font-family: var(--active-font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.noki-courier-prep {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: 8px;
+  background: rgba(255, 213, 0, 0.14);
+  color: var(--color-accent-300);
+  font-size: 9.5px;
+  line-height: normal;
+}
+
+.noki-courier-card {
+  padding: 12px;
+  border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  background: var(--color-surface);
+}
+
+.noki-courier-label {
+  color: rgba(238, 241, 250, 0.5);
+  font-size: 10px;
+  line-height: normal;
+}
+
+.noki-courier-value {
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.noki-courier-value-spaced {
+  margin-bottom: 8px;
+}
+
+.noki-courier-progress-track {
+  height: 5px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-surface-2);
+}
+
+.noki-courier-progress-fill {
+  width: 64%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-accent));
+}
+
+.noki-courier-cod-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.noki-courier-wallet {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 7px;
+  background: rgba(255, 213, 0, 0.12);
+  color: var(--color-accent-300);
+}
+
+.noki-courier-wallet svg {
+  display: block;
+}
+
+.noki-courier-incident-label {
+  margin-bottom: 6px;
+}
+
+.noki-courier-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.noki-courier-tags span {
+  padding: 3px 8px;
+  border-radius: 8px;
+  background: var(--color-surface-2);
+  font-size: 10px;
+  line-height: normal;
+}
+
+.noki-courier-confirm {
+  margin-top: auto;
+  padding: 10px;
+  border: 1px solid rgba(63, 212, 255, 0.25);
+  border-radius: 12px;
+  background: rgba(63, 212, 255, 0.08);
+  color: rgba(238, 241, 250, 0.7);
+  font-size: 11px;
+  line-height: normal;
+}
+
+.noki-courier-copy h6 {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noki-courier-copy h2 {
+  margin: 0 0 18px;
+  font-family: var(--active-font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.015em;
+}
+
+.noki-courier-copy p {
+  margin: 0 0 26px;
+  color: rgba(238, 241, 250, 0.72);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.noki-courier-benefits {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.noki-courier-benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.noki-courier-benefit-icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: var(--color-accent);
+}
+
+.noki-courier-benefit-icon svg {
+  display: block;
+}
+
+.noki-courier-benefit div:last-child {
+  color: rgba(238, 241, 250, 0.75);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -1366,6 +1606,10 @@ a:focus-visible {
   .noki-cycle-pulse {
     animation: pulseRing 2.6s ease-out infinite;
   }
+
+  .noki-courier-phone {
+    animation: floaty 7s ease-in-out infinite;
+  }
 }
 
 @media (max-width: 1080px) {
@@ -1379,6 +1623,17 @@ a:focus-visible {
 }
 
 @media (max-width: 900px) {
+  .noki-courier {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .noki-courier-benefits {
+    grid-template-columns: 1fr;
+  }
+
   .noki-ai {
     padding-right: 24px;
     padding-left: 24px;
