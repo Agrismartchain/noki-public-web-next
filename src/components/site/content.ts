@@ -95,6 +95,18 @@ export const SITE_COPY: Record<
       body: string;
       benefits: string[];
     };
+    security: {
+      kicker: string;
+      title: string;
+      body: string;
+      logTitle: string;
+      preview: string;
+      items: string[];
+      log: {
+        action: string;
+        role: string;
+      }[];
+    };
   }
 > = {
   fr: {
@@ -297,6 +309,27 @@ export const SITE_COPY: Record<
         "Confirmation de progression en temps réel",
       ],
     },
+    security: {
+      kicker: "Sécurité & gouvernance",
+      title: "Un contrôle structuré, pas une boîte noire.",
+      body:
+        "Rôles, permissions et périmètres définis clairement, avec un journal d'actions consultable et une validation humaine sur chaque étape sensible du cycle.",
+      logTitle: "Journal d'actions",
+      preview: "Aperçu illustratif",
+      items: [
+        "Rôles & permissions par équipe",
+        "Périmètres d'accès définis",
+        "Journal d'actions consultable",
+        "Validation humaine sur les étapes sensibles",
+      ],
+      log: [
+        { action: "Confirmation de commande validée", role: "Superviseur" },
+        { action: "Reversement initié", role: "Finance" },
+        { action: "Accès stock modifié", role: "Admin" },
+        { action: "Anomalie cash signalée", role: "Système supervisé" },
+        { action: "Compte livreur activé", role: "Opérations" },
+      ],
+    },
   },
   en: {
     nav: {
@@ -471,6 +504,27 @@ export const SITE_COPY: Record<
         "Real-time progress confirmation",
       ],
     },
+    security: {
+      kicker: "Security & governance",
+      title: "Structured control, not a black box.",
+      body:
+        "Clearly defined roles, permissions and scopes, with a consultable action log and human validation at every sensitive step of the cycle.",
+      logTitle: "Action log",
+      preview: "Illustrative preview",
+      items: [
+        "Roles & permissions per team",
+        "Defined access scopes",
+        "Consultable action log",
+        "Human validation on sensitive steps",
+      ],
+      log: [
+        { action: "Order confirmation validated", role: "Supervisor" },
+        { action: "Reversal initiated", role: "Finance" },
+        { action: "Stock access changed", role: "Admin" },
+        { action: "Cash anomaly flagged", role: "Supervised system" },
+        { action: "Courier account activated", role: "Operations" },
+      ],
+    },
   },
   ar: {
     nav: {
@@ -643,6 +697,27 @@ export const SITE_COPY: Record<
         "الإعلان عن النقد ببضع لمسات",
         "إبلاغ مبسّط عن الحوادث",
         "تأكيد التقدم في الوقت الفعلي",
+      ],
+    },
+    security: {
+      kicker: "الأمان والحوكمة",
+      title: "تحكّم منظم، لا صندوق أسود.",
+      body:
+        "أدوار وصلاحيات ونطاقات محددة بوضوح، مع سجل إجراءات قابل للاطلاع وتحقق بشري في كل مرحلة حساسة من الدورة.",
+      logTitle: "سجل الإجراءات",
+      preview: "معاينة توضيحية",
+      items: [
+        "أدوار وصلاحيات لكل فريق",
+        "نطاقات وصول محددة",
+        "سجل إجراءات قابل للاطلاع",
+        "تحقق بشري في الخطوات الحساسة",
+      ],
+      log: [
+        { action: "تم التحقق من تأكيد الطلب", role: "مشرف" },
+        { action: "تم بدء التسوية", role: "المالية" },
+        { action: "تعديل صلاحيات الوصول للمخزون", role: "مسؤول" },
+        { action: "الإبلاغ عن حالة نقدية شاذة", role: "نظام خاضع للإشراف" },
+        { action: "تفعيل حساب عامل التوصيل", role: "العمليات" },
       ],
     },
   },

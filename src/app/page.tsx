@@ -8,6 +8,7 @@ import { CycleTimeline } from "@/components/site/CycleTimeline";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { ModulesShowcase } from "@/components/site/ModulesShowcase";
+import { SecurityGovernance } from "@/components/site/SecurityGovernance";
 import { WhyNoki } from "@/components/site/WhyNoki";
 import type { Language } from "@/components/site/content";
 
@@ -24,6 +25,7 @@ export default function Home() {
         <CycleTimeline language={language} />
         <AiAssistantPreview language={language} />
         <CourierAppPreview language={language} />
+        <SecurityGovernance language={language} />
       </main>
     </div>
   );

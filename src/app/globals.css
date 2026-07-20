@@ -1468,6 +1468,149 @@ a:focus-visible {
   line-height: 1.5;
 }
 
+.noki-security {
+  padding: 60px 40px 120px;
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-bg-soft);
+}
+
+.noki-security-inner {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.noki-security-copy h6 {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noki-security-copy h2 {
+  margin: 0 0 18px;
+  font-family: var(--active-font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.015em;
+}
+
+.noki-security-copy p {
+  margin: 0 0 28px;
+  color: rgba(238, 241, 250, 0.72);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.noki-security-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.noki-security-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--color-divider);
+  border-radius: 11px;
+  background: var(--color-surface);
+}
+
+.noki-security-item-icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(255, 213, 0, 0.1);
+  color: var(--color-accent-300);
+}
+
+.noki-security-item-icon svg {
+  display: block;
+}
+
+.noki-security-item-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.noki-security-log {
+  padding: 22px;
+  border: 1px solid var(--color-divider);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.noki-security-log-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.noki-security-log-title {
+  font-family: var(--active-font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.noki-security-log-head span {
+  flex: none;
+  color: rgba(238, 241, 250, 0.4);
+  font-size: 10.5px;
+  line-height: normal;
+}
+
+.noki-security-log-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.noki-security-log-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.noki-security-log-dot {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-cyan);
+}
+
+.noki-security-log-action {
+  flex: 1;
+  color: rgba(238, 241, 250, 0.75);
+  font-size: 12.5px;
+  line-height: normal;
+}
+
+.noki-security-log-role {
+  color: rgba(238, 241, 250, 0.4);
+  font-size: 11px;
+  line-height: normal;
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -1623,6 +1766,16 @@ a:focus-visible {
 }
 
 @media (max-width: 900px) {
+  .noki-security {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .noki-security-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
   .noki-courier {
     grid-template-columns: 1fr;
     gap: 44px;
