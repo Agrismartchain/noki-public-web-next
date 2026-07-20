@@ -61,6 +61,24 @@ export const SITE_COPY: Record<
       body: string;
       steps: string[];
     };
+    ia: {
+      kicker: string;
+      title: string;
+      body: string;
+      queueTitle: string;
+      supervised: string;
+      supervisionTitle: string;
+      disclaimer: string;
+      queue: {
+        title: string;
+        detail: string;
+        status: string;
+      }[];
+      supervision: {
+        title: string;
+        desc: string;
+      }[];
+    };
   }
 > = {
   fr: {
@@ -194,6 +212,53 @@ export const SITE_COPY: Record<
         "Reversement",
       ],
     },
+    ia: {
+      kicker: "Assistant opérationnel IA",
+      title: "Une IA d'assistance, toujours supervisée.",
+      body:
+        "En préparation : un assistant conçu pour aider les équipes à prioriser, confirmer et détecter — jamais pour décider seul à leur place.",
+      queueTitle: "File de priorisation",
+      supervised: "Supervisé",
+      supervisionTitle: "Zone de supervision",
+      disclaimer:
+        "Chaque recommandation reste soumise à validation humaine avant toute action sur une commande ou un paiement.",
+      queue: [
+        {
+          title: "Priorisation des commandes",
+          detail: "Suggestion d'ordre de traitement selon l'urgence",
+          status: "À valider",
+        },
+        {
+          title: "Aide à la confirmation",
+          detail: "Résumé des échanges avec le client",
+          status: "Proposé",
+        },
+        {
+          title: "Détection d'anomalie",
+          detail: "Écart identifié sur un rapprochement cash",
+          status: "Signalé",
+        },
+        {
+          title: "Prochaine action",
+          detail: "Recommandation de relance livreur",
+          status: "En attente",
+        },
+      ],
+      supervision: [
+        {
+          title: "Résumé d'interactions",
+          desc: "L'assistant condense les échanges pour accélérer la lecture par l'équipe.",
+        },
+        {
+          title: "Proposition de prochaines actions",
+          desc: "Des suggestions d'étape suivante, jamais exécutées automatiquement.",
+        },
+        {
+          title: "Validation humaine finale",
+          desc: "Aucune action sur une commande ou un paiement sans confirmation d'un opérateur.",
+        },
+      ],
+    },
   },
   en: {
     nav: {
@@ -300,6 +365,52 @@ export const SITE_COPY: Record<
         "Reversal",
       ],
     },
+    ia: {
+      kicker: "AI operations assistant",
+      title: "An AI assistant, always supervised.",
+      body:
+        "In development: an assistant designed to help teams prioritize, confirm and detect — never to decide alone on their behalf.",
+      queueTitle: "Priority queue",
+      supervised: "Supervised",
+      supervisionTitle: "Supervision zone",
+      disclaimer: "Every recommendation remains subject to human validation before any action on an order or a payment.",
+      queue: [
+        {
+          title: "Order prioritization",
+          detail: "Suggested processing order based on urgency",
+          status: "To review",
+        },
+        {
+          title: "Confirmation assistance",
+          detail: "Summary of exchanges with the customer",
+          status: "Suggested",
+        },
+        {
+          title: "Anomaly detection",
+          detail: "Discrepancy identified in a cash reconciliation",
+          status: "Flagged",
+        },
+        {
+          title: "Next action",
+          detail: "Suggested courier follow-up",
+          status: "Pending",
+        },
+      ],
+      supervision: [
+        {
+          title: "Interaction summaries",
+          desc: "The assistant condenses exchanges so the team can read faster.",
+        },
+        {
+          title: "Next-action suggestions",
+          desc: "Suggestions for the next step, never executed automatically.",
+        },
+        {
+          title: "Final human validation",
+          desc: "No action on an order or a payment without an operator's confirmation.",
+        },
+      ],
+    },
   },
   ar: {
     nav: {
@@ -404,6 +515,52 @@ export const SITE_COPY: Record<
         "التوصيل",
         "تسوية النقد",
         "التسوية النهائية",
+      ],
+    },
+    ia: {
+      kicker: "مساعد تشغيلي بالذكاء الاصطناعي",
+      title: "ذكاء اصطناعي مساعد، خاضع للإشراف دائمًا.",
+      body:
+        "قيد التحضير: مساعد مصمّم لمساعدة الفرق على تحديد الأولويات والتأكيد والكشف — وليس لاتخاذ القرار بمفرده أبدًا.",
+      queueTitle: "قائمة الأولويات",
+      supervised: "خاضع للإشراف",
+      supervisionTitle: "منطقة الإشراف",
+      disclaimer: "تبقى كل توصية خاضعة للتحقق البشري قبل أي إجراء على طلب أو دفعة.",
+      queue: [
+        {
+          title: "ترتيب أولويات الطلبات",
+          detail: "اقتراح ترتيب المعالجة حسب الأهمية",
+          status: "بانتظار التحقق",
+        },
+        {
+          title: "مساعدة في التأكيد",
+          detail: "ملخص التبادلات مع العميل",
+          status: "مقترح",
+        },
+        {
+          title: "كشف الحالات الشاذة",
+          detail: "فرق مُكتشف في تسوية نقدية",
+          status: "مُبلَّغ عنه",
+        },
+        {
+          title: "الإجراء التالي",
+          detail: "اقتراح متابعة مع عامل التوصيل",
+          status: "قيد الانتظار",
+        },
+      ],
+      supervision: [
+        {
+          title: "ملخصات التفاعلات",
+          desc: "يقوم المساعد بتلخيص التبادلات لتسريع قراءة الفريق.",
+        },
+        {
+          title: "اقتراح الإجراءات التالية",
+          desc: "اقتراحات للخطوة التالية، لا تُنفَّذ تلقائيًا أبدًا.",
+        },
+        {
+          title: "التحقق البشري النهائي",
+          desc: "لا إجراء على طلب أو دفعة دون تأكيد من مشرف.",
+        },
       ],
     },
   },

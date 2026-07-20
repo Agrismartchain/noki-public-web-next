@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { AiAssistantPreview } from "@/components/site/AiAssistantPreview";
 import { CycleTimeline } from "@/components/site/CycleTimeline";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
@@ -20,6 +21,7 @@ export default function Home() {
         <WhyNoki language={language} />
         <ModulesShowcase language={language} />
         <CycleTimeline language={language} />
+        <AiAssistantPreview language={language} />
       </main>
     </div>
   );
