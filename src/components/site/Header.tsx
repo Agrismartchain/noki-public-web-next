@@ -3,48 +3,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type Language = "fr" | "en" | "ar";
-
-const NAV_LABELS: Record<
-  Language,
-  {
-    home: string;
-    services: string;
-    how: string;
-    tools: string;
-    about: string;
-    contact: string;
-    cta: string;
-  }
-> = {
-  fr: {
-    home: "Accueil",
-    services: "Services",
-    how: "Comment ça marche",
-    tools: "Outils",
-    about: "À propos",
-    contact: "Contact",
-    cta: "S'inscrire maintenant",
-  },
-  en: {
-    home: "Home",
-    services: "Services",
-    how: "How it works",
-    tools: "Tools",
-    about: "About",
-    contact: "Contact",
-    cta: "Sign up now",
-  },
-  ar: {
-    home: "الرئيسية",
-    services: "الخدمات",
-    how: "كيف يعمل",
-    tools: "الأدوات",
-    about: "من نحن",
-    contact: "اتصل بنا",
-    cta: "سجّل الآن",
-  },
-};
+import type { Language } from "./content";
+import { LANGUAGES, SITE_COPY } from "./content";
 
 const NAV_ITEMS = [
   ["home", "#top"],
@@ -55,12 +15,14 @@ const NAV_ITEMS = [
   ["contact", "#contact"],
 ] as const;
 
-const LANGUAGES = ["fr", "en", "ar"] as const;
+type HeaderProps = {
+  language: Language;
+  onLanguageChange: (language: Language) => void;
+};
 
-export function Header() {
-  const [language, setLanguage] = useState<Language>("fr");
+export function Header({ language, onLanguageChange }: HeaderProps) {
   const [navOpen, setNavOpen] = useState(false);
-  const labels = NAV_LABELS[language];
+  const labels = SITE_COPY[language].nav;
   const direction = language === "ar" ? "rtl" : "ltr";
 
   useEffect(() => {
@@ -121,7 +83,7 @@ export function Header() {
               data-active={language === lang}
               type="button"
               key={lang}
-              onClick={() => setLanguage(lang)}
+              onClick={() => onLanguageChange(lang)}
               aria-pressed={language === lang}
             >
               {lang.toUpperCase()}

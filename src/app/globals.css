@@ -76,34 +76,6 @@ a:focus-visible {
   min-height: calc(100vh - 75px);
 }
 
-.site-main::before,
-.site-main::after {
-  content: "";
-  position: absolute;
-  pointer-events: none;
-}
-
-.site-main::before {
-  top: -120px;
-  left: -160px;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(63, 212, 255, 0.16), transparent 70%);
-  filter: blur(10px);
-}
-
-.site-main::after {
-  top: 50px;
-  right: -20px;
-  width: 740px;
-  height: 585px;
-  background:
-    radial-gradient(circle at 55% 35%, rgba(63, 212, 255, 0.22), transparent 60%),
-    radial-gradient(circle at 75% 70%, rgba(255, 213, 0, 0.14), transparent 55%);
-  filter: blur(8px);
-}
-
 .noki-site-header {
   position: sticky;
   top: 0;
@@ -254,6 +226,142 @@ a:focus-visible {
   border-radius: 8px;
 }
 
+.noki-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 56px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 110px 40px 90px;
+}
+
+.noki-hero-glow-left {
+  position: absolute;
+  top: -120px;
+  left: -160px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(63, 212, 255, 0.16), transparent 70%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.noki-hero-copy {
+  position: relative;
+  min-width: 0;
+}
+
+.noki-hero-title {
+  margin: 0 0 22px;
+  font-family: var(--active-font-heading);
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+
+.noki-hero-title span {
+  color: var(--color-accent);
+}
+
+.noki-hero-subtitle {
+  max-width: 520px;
+  margin: 0 0 34px;
+  color: rgba(238, 241, 250, 0.72);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.noki-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 38px;
+}
+
+.noki-hero-cta-primary,
+.noki-hero-cta-secondary {
+  text-decoration: none;
+  font-family: var(--active-font-heading);
+  font-size: 14.5px;
+  border-radius: 10px;
+}
+
+.noki-hero-cta-primary {
+  padding: 14px 26px;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  font-weight: 700;
+  box-shadow: 0 12px 32px rgba(255, 213, 0, 0.22);
+}
+
+.noki-hero-cta-secondary {
+  padding: 14px 26px;
+  border: 1px solid var(--color-divider);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.noki-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.noki-hero-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--color-divider);
+  border-radius: 20px;
+  background: var(--color-surface);
+  color: rgba(238, 241, 250, 0.75);
+  font-size: 12.5px;
+}
+
+.noki-hero-pill span {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-cyan);
+}
+
+.noki-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+
+.noki-hero-visual-glow-cyan,
+.noki-hero-visual-glow-yellow {
+  position: absolute;
+  inset: -60px;
+  filter: blur(8px);
+  pointer-events: none;
+}
+
+.noki-hero-visual-glow-cyan {
+  background: radial-gradient(circle at 55% 35%, rgba(63, 212, 255, 0.22), transparent 60%);
+}
+
+.noki-hero-visual-glow-yellow {
+  background: radial-gradient(circle at 75% 70%, rgba(255, 213, 0, 0.14), transparent 55%);
+}
+
+.noki-hero-dashboard {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -266,6 +374,17 @@ a:focus-visible {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes floaty {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-14px);
+    }
+  }
+
   .noki-navlink {
     transition:
       background 0.25s ease,
@@ -274,6 +393,10 @@ a:focus-visible {
 
   .noki-lang-btn {
     transition: background 0.2s ease;
+  }
+
+  .noki-hero-dashboard {
+    animation: floaty 7s ease-in-out infinite;
   }
 }
 
