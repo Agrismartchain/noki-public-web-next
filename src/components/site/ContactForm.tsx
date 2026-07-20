@@ -13,6 +13,7 @@ import {
   isValidEmail,
   isValidUrl,
 } from "@/components/forms/NokiFormControls";
+import { localizedPath } from "@/lib/seo/i18n";
 
 import type { Language } from "./content";
 import { CONVERSION_COPY, FORM_LABELS, PRIORITY_COUNTRIES, REQUEST_TYPES, labelFor } from "./conversionContent";
@@ -80,7 +81,7 @@ type ContactFormState = {
 
 type ContactErrors = Partial<Record<keyof ContactFormState, string>>;
 
-const EMPTY_FORM: ContactFormState = {
+const EMPTY_FORM: Omit<ContactFormState, "preferredLanguage"> = {
   requestType: "",
   firstName: "",
   lastName: "",
@@ -93,7 +94,6 @@ const EMPTY_FORM: ContactFormState = {
   company: "",
   website: "",
   preferredChannel: "",
-  preferredLanguage: "fr",
   message: "",
   monthlyOrders: "",
   codShare: "",
@@ -136,7 +136,7 @@ const CONTACT_LOCAL_COPY = {
     submitBlocked: "Collecte non connectée",
   },
   en: {
-    invalid: "Review the highlighted fields before preparing the request.",
+    invalid: "Check the highlighted fields before preparing the request.",
     merchantNudge: "For a complete registration, the dedicated merchant onboarding is available.",
     merchantLink: "Open onboarding",
     demoGroup: "E-commerce qualification",
@@ -160,6 +160,13 @@ const CONTACT_LOCAL_COPY = {
     submitBlocked: "جمع البيانات غير متصل",
   },
 } satisfies Record<Language, Record<string, string>>;
+
+function createEmptyForm(language: Language): ContactFormState {
+  return {
+    ...EMPTY_FORM,
+    preferredLanguage: language,
+  };
+}
 
 function requestTypeOptions(language: Language) {
   return Object.entries(REQUEST_TYPES).map(([value, labels]) => ({
@@ -191,7 +198,7 @@ export function ContactForm() {
   const { language } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = CONTACT_LOCAL_COPY[language];
-  const [form, setForm] = useState<ContactFormState>(EMPTY_FORM);
+  const [form, setForm] = useState<ContactFormState>(() => createEmptyForm(language));
   const [errors, setErrors] = useState<ContactErrors>({});
   const [status, setStatus] = useState<"idle" | "invalid" | "blocked">("idle");
 
@@ -518,7 +525,7 @@ export function ContactForm() {
         {form.requestType === "merchant" ? (
           <div className="noki-form-inline-callout">
             <span>{local.merchantNudge}</span>
-            <a href="/register">{local.merchantLink}</a>
+            <a href={localizedPath(language, "/register")}>{local.merchantLink}</a>
           </div>
         ) : null}
 

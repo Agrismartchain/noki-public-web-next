@@ -1,19 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+import { homeSectionHref, localizedPath } from "@/lib/seo/i18n";
 
 import type { Language } from "./content";
 import { SITE_COPY } from "./content";
 
 type FooterProps = {
   language: Language;
-  homeHrefPrefix?: "" | "/";
 };
 
-export function Footer({ language, homeHrefPrefix = "" }: FooterProps) {
+export function Footer({ language }: FooterProps) {
+  const pathname = usePathname() || localizedPath(language);
   const labels = SITE_COPY[language].footer;
   const direction = language === "ar" ? "rtl" : "ltr";
-  const sectionHref = (id: string) => `${homeHrefPrefix}#${id}`;
+  const sectionHref = (id: string) => homeSectionHref(language, id, pathname);
 
   return (
     <footer className="noki-footer" dir={direction}>
@@ -51,9 +54,9 @@ export function Footer({ language, homeHrefPrefix = "" }: FooterProps) {
           <div>
             <div className="noki-footer-column-title">{labels.colContact}</div>
             <div className="noki-footer-links">
-              <a href="/contact">{labels.linkContact}</a>
-              <a href="/register">{labels.linkSignup}</a>
-              <a href="/login">{labels.linkLogin}</a>
+              <a href={localizedPath(language, "/contact")}>{labels.linkContact}</a>
+              <a href={localizedPath(language, "/register")}>{labels.linkSignup}</a>
+              <a href={localizedPath(language, "/login")}>{labels.linkLogin}</a>
             </div>
           </div>
         </div>

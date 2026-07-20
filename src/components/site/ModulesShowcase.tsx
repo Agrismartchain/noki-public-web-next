@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { localizedPath } from "@/lib/seo/i18n";
+
 import type { Language } from "./content";
 import { SITE_COPY } from "./content";
 
@@ -154,7 +156,7 @@ export function ModulesShowcase({ language }: ModulesShowcaseProps) {
       </div>
 
       <div className="noki-modules-cta-wrap" data-reveal="">
-        <a className="noki-modules-cta" href="/register">
+        <a className="noki-modules-cta" href={localizedPath(language, "/register")}>
           {labels.ctaFinal}
         </a>
       </div>

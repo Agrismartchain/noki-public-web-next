@@ -1,7 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo } from "react";
+import { usePathname, useRouter } from "next/navigation";
+
+import { LOCALE_DIRECTIONS, switchLocaleInPathname } from "@/lib/seo/i18n";
 
 import type { Language } from "./content";
 
@@ -11,28 +14,15 @@ type LanguageContextValue = {
   setLanguage: (language: Language) => void;
 };
 
-const STORAGE_KEY = "noki-site-language";
+const STORAGE_KEY = "noki-language";
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-function isLanguage(value: string | null): value is Language {
-  return value === "fr" || value === "en" || value === "ar";
-}
-
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("fr");
-  const direction = language === "ar" ? "rtl" : "ltr";
-
-  useEffect(() => {
-    const frame = window.requestAnimationFrame(() => {
-      const storedLanguage = window.localStorage.getItem(STORAGE_KEY);
-      if (isLanguage(storedLanguage)) {
-        setLanguageState(storedLanguage);
-      }
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, []);
+export function LanguageProvider({ children, initialLanguage }: { children: ReactNode; initialLanguage: Language }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const language = initialLanguage;
+  const direction = LOCALE_DIRECTIONS[language];
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -41,13 +31,25 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     window.localStorage.setItem(STORAGE_KEY, language);
   }, [direction, language]);
 
+  const setLanguage = useCallback(
+    (nextLanguage: Language) => {
+      const nextPathname = switchLocaleInPathname(pathname || `/${language}`, nextLanguage);
+      const search = window.location.search;
+      const hash = window.location.hash;
+
+      window.localStorage.setItem(STORAGE_KEY, nextLanguage);
+      router.push(`${nextPathname}${search}${hash}`);
+    },
+    [language, pathname, router],
+  );
+
   const value = useMemo<LanguageContextValue>(
     () => ({
       language,
       direction,
-      setLanguage: setLanguageState,
+      setLanguage,
     }),
-    [direction, language],
+    [direction, language, setLanguage],
   );
 
   return <LanguageContext.Provider value={value}>{children}</LanguageContext.Provider>;

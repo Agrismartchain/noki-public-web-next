@@ -2,6 +2,8 @@
 
 import { useEffect, useId, useRef, useState } from "react";
 
+import { localizedPath } from "@/lib/seo/i18n";
+
 import type { Language } from "./content";
 import { SITE_COPY } from "./content";
 
@@ -93,7 +95,7 @@ export function FaqSection({ language }: FaqSectionProps) {
 
         <div className="noki-faq-more">
           <span>{labels.more}</span>
-          <a href="/contact">{labels.talk}</a>
+          <a href={localizedPath(language, "/contact")}>{labels.talk}</a>
         </div>
       </div>
     </section>

@@ -1,19 +1,39 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+
+import { homeSectionHref, localizedPath } from "@/lib/seo/i18n";
 
 import type { Language } from "./content";
 import { LANGUAGES, SITE_COPY } from "./content";
 
 const NAV_ITEMS = [
-  ["home", "#top"],
-  ["services", "#modules"],
-  ["how", "#cycle"],
-  ["tools", "#ia"],
-  ["about", "#securite"],
-  ["contact", "/contact"],
+  ["home", "top"],
+  ["services", "modules"],
+  ["how", "cycle"],
+  ["tools", "ia"],
+  ["about", "securite"],
 ] as const;
+
+const ARIA_COPY = {
+  fr: {
+    desktop: "Navigation principale",
+    mobile: "Navigation mobile",
+    menu: "Ouvrir le menu",
+  },
+  en: {
+    desktop: "Primary navigation",
+    mobile: "Mobile navigation",
+    menu: "Open menu",
+  },
+  ar: {
+    desktop: "التنقل الرئيسي",
+    mobile: "تنقل الهاتف",
+    menu: "فتح القائمة",
+  },
+} as const satisfies Record<Language, Record<string, string>>;
 
 type HeaderProps = {
   language: Language;
@@ -22,8 +42,13 @@ type HeaderProps = {
 
 export function Header({ language, onLanguageChange }: HeaderProps) {
   const [navOpen, setNavOpen] = useState(false);
+  const pathname = usePathname() || localizedPath(language);
   const labels = SITE_COPY[language].nav;
+  const aria = ARIA_COPY[language];
   const direction = language === "ar" ? "rtl" : "ltr";
+  const contactHref = localizedPath(language, "/contact");
+  const loginHref = localizedPath(language, "/login");
+  const registerHref = localizedPath(language, "/register");
 
   useEffect(() => {
     if (!navOpen) {
@@ -55,12 +80,15 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
         </div>
       </div>
 
-      <nav className="noki-desktop-nav" aria-label="Navigation principale">
-        {NAV_ITEMS.map(([key, href]) => (
-          <a className="noki-navlink" href={href} key={key}>
+      <nav className="noki-desktop-nav" aria-label={aria.desktop}>
+        {NAV_ITEMS.map(([key, id]) => (
+          <a className="noki-navlink" href={homeSectionHref(language, id, pathname)} key={key}>
             {labels[key]}
           </a>
         ))}
+        <a className="noki-navlink" href={contactHref}>
+          {labels.contact}
+        </a>
       </nav>
 
       <div className="noki-header-actions">
@@ -79,18 +107,18 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           ))}
         </div>
 
-        <a className="noki-header-login" href="/login">
+        <a className="noki-header-login" href={loginHref}>
           {labels.login}
         </a>
 
-        <a className="noki-header-cta" href="/register">
+        <a className="noki-header-cta" href={registerHref}>
           {labels.cta}
         </a>
 
         <button
           className="noki-menu-btn"
           type="button"
-          aria-label="Ouvrir le menu"
+          aria-label={aria.menu}
           aria-expanded={navOpen}
           aria-controls="noki-mobile-menu"
           onClick={() => setNavOpen((open) => !open)}
@@ -102,16 +130,19 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
       </div>
 
       {navOpen ? (
-        <nav className="noki-mobile-menu" id="noki-mobile-menu" aria-label="Navigation mobile">
-          {NAV_ITEMS.map(([key, href]) => (
-            <a className="noki-navlink" href={href} key={key} onClick={() => setNavOpen(false)}>
+        <nav className="noki-mobile-menu" id="noki-mobile-menu" aria-label={aria.mobile}>
+          {NAV_ITEMS.map(([key, id]) => (
+            <a className="noki-navlink" href={homeSectionHref(language, id, pathname)} key={key} onClick={() => setNavOpen(false)}>
               {labels[key]}
             </a>
           ))}
-          <a className="noki-navlink" href="/login" onClick={() => setNavOpen(false)}>
+          <a className="noki-navlink" href={contactHref} onClick={() => setNavOpen(false)}>
+            {labels.contact}
+          </a>
+          <a className="noki-navlink" href={loginHref} onClick={() => setNavOpen(false)}>
             {labels.login}
           </a>
-          <a className="noki-navlink noki-mobile-register-link" href="/register" onClick={() => setNavOpen(false)}>
+          <a className="noki-navlink noki-mobile-register-link" href={registerHref} onClick={() => setNavOpen(false)}>
             {labels.cta}
           </a>
         </nav>

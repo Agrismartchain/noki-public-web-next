@@ -6,6 +6,7 @@ import type { FormEvent } from "react";
 import { useState } from "react";
 
 import { CheckboxField, TextInput, focusFirstInvalid, isValidEmail } from "@/components/forms/NokiFormControls";
+import { localizedPath } from "@/lib/seo/i18n";
 
 import { LANGUAGES } from "./content";
 import { CONVERSION_COPY } from "./conversionContent";
@@ -30,6 +31,9 @@ export function LoginForm() {
   const { language, direction, setLanguage } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = LOGIN_LOCAL_COPY[language];
+  const homeHref = localizedPath(language);
+  const registerHref = localizedPath(language, "/register");
+  const contactHref = localizedPath(language, "/contact");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
@@ -82,7 +86,7 @@ export function LoginForm() {
 
       <section className="noki-login-panel" aria-labelledby="noki-login-title">
         <header className="noki-login-topbar">
-          <Link href="/">{copy.common.backHome}</Link>
+          <Link href={homeHref}>{copy.common.backHome}</Link>
           <div className="noki-lang-switch" data-lang-switch="" aria-label={copy.common.language}>
             {LANGUAGES.map((lang) => (
               <button
@@ -159,8 +163,8 @@ export function LoginForm() {
           </button>
 
           <div className="noki-login-links">
-            <Link href="/register">{copy.login.register}</Link>
-            <Link href="/contact">{copy.login.contact}</Link>
+            <Link href={registerHref}>{copy.login.register}</Link>
+            <Link href={contactHref}>{copy.login.contact}</Link>
           </div>
         </form>
       </section>

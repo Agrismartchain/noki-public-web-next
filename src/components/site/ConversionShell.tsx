@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
+import { localizedPath } from "@/lib/seo/i18n";
+
 import { LANGUAGES, SITE_COPY } from "./content";
 import { CONVERSION_COPY } from "./conversionContent";
 import { Footer } from "./Footer";
@@ -27,7 +29,7 @@ export function ConversionShell({ mode, kicker, title, body, benefits, aside, ch
   return (
     <div className="noki-conversion-page" data-mode={mode} dir={direction}>
       <header className="noki-conversion-topbar">
-        <Link className="noki-conversion-brand" href="/" aria-label="NOKI Service">
+        <Link className="noki-conversion-brand" href={localizedPath(language)} aria-label="NOKI Service">
           <Image src="/assets/brand/noki-logo-yellow.png" alt="" width={38} height={38} priority unoptimized />
           <span>
             <strong>NOKI</strong> SERVICE
@@ -35,8 +37,8 @@ export function ConversionShell({ mode, kicker, title, body, benefits, aside, ch
         </Link>
 
         <div className="noki-conversion-topbar-actions">
-          <Link href="/#modules">{nav.services}</Link>
-          <Link href="/">{common.backHome}</Link>
+          <Link href={`${localizedPath(language)}#modules`}>{nav.services}</Link>
+          <Link href={localizedPath(language)}>{common.backHome}</Link>
           <div className="noki-lang-switch" data-lang-switch="" aria-label={common.language}>
             {LANGUAGES.map((lang) => (
               <button
@@ -82,7 +84,7 @@ export function ConversionShell({ mode, kicker, title, body, benefits, aside, ch
         </section>
       </main>
 
-      <Footer language={language} homeHrefPrefix="/" />
+      <Footer language={language} />
     </div>
   );
 }

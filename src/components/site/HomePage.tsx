@@ -18,7 +18,7 @@ import { SecurityGovernance } from "@/components/site/SecurityGovernance";
 import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { WhyNoki } from "@/components/site/WhyNoki";
 
-export default function Home() {
+export function HomePage() {
   const { language, setLanguage } = useSiteLanguage();
 
   return (

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
+import { localizedPath } from "@/lib/seo/i18n";
+
 import type { Language } from "./content";
 import { SITE_COPY } from "./content";
 
@@ -49,10 +51,10 @@ export function FinalCta({ language }: FinalCtaProps) {
         <h2 id="noki-final-cta-title">{labels.title}</h2>
         <p>{labels.body}</p>
         <div className="noki-final-cta-actions">
-          <a className="noki-final-cta-primary" href="/register">
+          <a className="noki-final-cta-primary" href={localizedPath(language, "/register")}>
             {labels.cta1}
           </a>
-          <a className="noki-final-cta-secondary" href="/contact">
+          <a className="noki-final-cta-secondary" href={localizedPath(language, "/contact")}>
             {labels.cta2}
           </a>
         </div>

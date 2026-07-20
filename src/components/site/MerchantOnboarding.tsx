@@ -100,7 +100,7 @@ type MerchantFormState = {
 
 type MerchantErrors = Partial<Record<keyof MerchantFormState, string>>;
 
-const EMPTY_MERCHANT_FORM: MerchantFormState = {
+const EMPTY_MERCHANT_FORM: Omit<MerchantFormState, "preferredLanguage"> = {
   firstName: "",
   lastName: "",
   role: "",
@@ -108,7 +108,6 @@ const EMPTY_MERCHANT_FORM: MerchantFormState = {
   phone: "",
   country: "",
   city: "",
-  preferredLanguage: "fr",
   legalName: "",
   brandName: "",
   website: "",
@@ -181,7 +180,7 @@ const REGISTER_LOCAL_COPY = {
     none: "Non renseigné",
   },
   en: {
-    invalid: "Review the highlighted fields to continue.",
+    invalid: "Check the highlighted fields to continue.",
     blockedTitle: "Collection not connected",
     stepCount: "6 steps",
     stepNames: ["Contact", "Company", "E-commerce activity", "Delivery & COD", "NOKI needs", "Validation"],
@@ -191,7 +190,7 @@ const REGISTER_LOCAL_COPY = {
       "Qualify volumes, channels and served countries with ranges.",
       "Understand delivery, COD and remittance operations.",
       "Prioritize useful modules and integrations.",
-      "Review the information before preparing the request.",
+      "Check the information before preparing the request.",
     ],
     summary: "Structured summary",
     contact: "Primary contact",
@@ -226,6 +225,13 @@ const REGISTER_LOCAL_COPY = {
 
 const PROGRESS = [16, 33, 50, 66, 83, 100] as const;
 
+function createEmptyMerchantForm(language: Language): MerchantFormState {
+  return {
+    ...EMPTY_MERCHANT_FORM,
+    preferredLanguage: language,
+  };
+}
+
 function isPhone(value: string) {
   return /^[+\d\s().-]{7,24}$/.test(value.trim());
 }
@@ -252,7 +258,7 @@ export function MerchantOnboarding() {
   const local = REGISTER_LOCAL_COPY[language];
   const stepNames = local.stepNames as string[];
   const stepBodies = local.stepBodies as string[];
-  const [form, setForm] = useState<MerchantFormState>(EMPTY_MERCHANT_FORM);
+  const [form, setForm] = useState<MerchantFormState>(() => createEmptyMerchantForm(language));
   const [errors, setErrors] = useState<MerchantErrors>({});
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<"idle" | "invalid" | "blocked">("idle");

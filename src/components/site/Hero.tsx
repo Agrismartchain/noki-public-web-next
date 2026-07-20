@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { homeSectionHref, localizedPath } from "@/lib/seo/i18n";
+
 import type { Language } from "./content";
 import { SITE_COPY } from "./content";
 
@@ -24,10 +26,10 @@ export function Hero({ language }: HeroProps) {
         <p className="noki-hero-subtitle">{labels.hero.subtitle}</p>
 
         <div className="noki-hero-actions">
-          <a className="noki-hero-cta-primary" href="/register">
+          <a className="noki-hero-cta-primary" href={localizedPath(language, "/register")}>
             {labels.nav.cta}
           </a>
-          <a className="noki-hero-cta-secondary" href="#modules">
+          <a className="noki-hero-cta-secondary" href={homeSectionHref(language, "modules", localizedPath(language))}>
             {labels.hero.cta2}
           </a>
         </div>
