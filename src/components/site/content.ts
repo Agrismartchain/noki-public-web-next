@@ -107,6 +107,13 @@ export const SITE_COPY: Record<
         role: string;
       }[];
     };
+    markets: {
+      kicker: string;
+      title: string;
+      body: string;
+      cardDesc: string;
+      loading: string;
+    };
   }
 > = {
   fr: {
@@ -291,7 +298,7 @@ export const SITE_COPY: Record<
       appName: "NOKI Livreur",
       prep: "En préparation",
       missionLabel: "Mission assignée",
-      missionText: "Livraison — Zone Cocody",
+      missionText: "Livraison — Zone Poto-Poto",
       codLabel: "COD à déclarer",
       codText: "Montant à saisir",
       incidentLabel: "Signaler un incident",
@@ -329,6 +336,14 @@ export const SITE_COPY: Record<
         { action: "Anomalie cash signalée", role: "Système supervisé" },
         { action: "Compte livreur activé", role: "Opérations" },
       ],
+    },
+    markets: {
+      kicker: "Marchés ciblés",
+      title: "Une plateforme pensée pour plusieurs marchés africains.",
+      body:
+        "Une architecture adaptable, conçue pour s'étendre à mesure que de nouveaux marchés sont ciblés.",
+      cardDesc: "Marché ciblé — architecture pensée pour s'y déployer avec une gouvernance adaptée.",
+      loading: "Chargement de la carte…",
     },
   },
   en: {
@@ -486,7 +501,7 @@ export const SITE_COPY: Record<
       appName: "NOKI Courier",
       prep: "In development",
       missionLabel: "Assigned mission",
-      missionText: "Delivery — Cocody zone",
+      missionText: "Delivery — Poto-Poto zone",
       codLabel: "COD to declare",
       codText: "Amount to enter",
       incidentLabel: "Report an incident",
@@ -524,6 +539,13 @@ export const SITE_COPY: Record<
         { action: "Cash anomaly flagged", role: "Supervised system" },
         { action: "Courier account activated", role: "Operations" },
       ],
+    },
+    markets: {
+      kicker: "Target markets",
+      title: "A platform designed for several African markets.",
+      body: "An adaptable architecture, designed to expand as new markets are targeted.",
+      cardDesc: "Target market — architecture designed to deploy there with adapted governance.",
+      loading: "Loading map…",
     },
   },
   ar: {
@@ -681,7 +703,7 @@ export const SITE_COPY: Record<
       appName: "NOKI للتوصيل",
       prep: "قيد التحضير",
       missionLabel: "مهمة مُسندة",
-      missionText: "توصيل — منطقة كوكودي",
+      missionText: "توصيل — منطقة بوتو-بوتو",
       codLabel: "مبلغ الدفع عند الاستلام",
       codText: "المبلغ المطلوب إدخاله",
       incidentLabel: "الإبلاغ عن حادثة",
@@ -719,6 +741,13 @@ export const SITE_COPY: Record<
         { action: "الإبلاغ عن حالة نقدية شاذة", role: "نظام خاضع للإشراف" },
         { action: "تفعيل حساب عامل التوصيل", role: "العمليات" },
       ],
+    },
+    markets: {
+      kicker: "الأسواق المستهدفة",
+      title: "منصة مصمّمة لعدة أسواق أفريقية.",
+      body: "بنية قابلة للتكيّف، مصمّمة للتوسع مع استهداف أسواق جديدة.",
+      cardDesc: "سوق مستهدف — بنية مصمّمة للانتشار فيه بحوكمة مناسبة.",
+      loading: "جارٍ تحميل الخريطة…",
     },
   },
 };

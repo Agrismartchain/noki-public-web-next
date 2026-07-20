@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { AiAssistantPreview } from "@/components/site/AiAssistantPreview";
+import { AfricaMarketsMap } from "@/components/site/AfricaMarketsMap";
 import { CourierAppPreview } from "@/components/site/CourierAppPreview";
 import { CycleTimeline } from "@/components/site/CycleTimeline";
 import { Header } from "@/components/site/Header";
@@ -26,6 +27,7 @@ export default function Home() {
         <AiAssistantPreview language={language} />
         <CourierAppPreview language={language} />
         <SecurityGovernance language={language} />
+        <AfricaMarketsMap language={language} />
       </main>
     </div>
   );
