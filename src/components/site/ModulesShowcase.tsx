@@ -154,7 +154,7 @@ export function ModulesShowcase({ language }: ModulesShowcaseProps) {
       </div>
 
       <div className="noki-modules-cta-wrap" data-reveal="">
-        <a className="noki-modules-cta" href="#contact">
+        <a className="noki-modules-cta" href="/register">
           {labels.ctaFinal}
         </a>
       </div>

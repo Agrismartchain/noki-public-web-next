@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   ["how", "#cycle"],
   ["tools", "#ia"],
   ["about", "#securite"],
-  ["contact", "#contact"],
+  ["contact", "/contact"],
 ] as const;
 
 type HeaderProps = {
@@ -24,18 +24,6 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
   const [navOpen, setNavOpen] = useState(false);
   const labels = SITE_COPY[language].nav;
   const direction = language === "ar" ? "rtl" : "ltr";
-
-  useEffect(() => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = direction;
-    document.documentElement.dataset.lang = language;
-
-    return () => {
-      document.documentElement.lang = "fr";
-      document.documentElement.dir = "ltr";
-      document.documentElement.dataset.lang = "fr";
-    };
-  }, [direction, language]);
 
   useEffect(() => {
     if (!navOpen) {
@@ -91,7 +79,11 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           ))}
         </div>
 
-        <a className="noki-header-cta" href="#contact">
+        <a className="noki-header-login" href="/login">
+          {labels.login}
+        </a>
+
+        <a className="noki-header-cta" href="/register">
           {labels.cta}
         </a>
 
@@ -116,6 +108,12 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
               {labels[key]}
             </a>
           ))}
+          <a className="noki-navlink" href="/login" onClick={() => setNavOpen(false)}>
+            {labels.login}
+          </a>
+          <a className="noki-navlink noki-mobile-register-link" href="/register" onClick={() => setNavOpen(false)}>
+            {labels.cta}
+          </a>
         </nav>
       ) : null}
     </header>

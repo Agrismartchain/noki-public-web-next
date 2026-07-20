@@ -13,6 +13,7 @@ export const SITE_COPY: Record<
       about: string;
       contact: string;
       cta: string;
+      login: string;
     };
     hero: {
       title1: string;
@@ -144,6 +145,60 @@ export const SITE_COPY: Record<
         role: string;
       }[];
     };
+    faq: {
+      kicker: string;
+      title: string;
+      titleAccent: string;
+      body: string;
+      more: string;
+      talk: string;
+      items: {
+        q: string;
+        a: string;
+      }[];
+    };
+    mobile: {
+      kicker: string;
+      title: string;
+      titleAccent: string;
+      body: string;
+      dailyFigure: string;
+      shipped: string;
+      shippedSub: string;
+      newOrder: string;
+      newOrderSub: string;
+      preview: string;
+      features: string[];
+    };
+    ctaFinal: {
+      title: string;
+      body: string;
+      cta1: string;
+      cta2: string;
+    };
+    footer: {
+      tagline: string;
+      colPlatform: string;
+      colTrust: string;
+      colContact: string;
+      linkModules: string;
+      linkCycle: string;
+      linkIA: string;
+      linkSecurity: string;
+      linkMarkets: string;
+      linkContact: string;
+      linkSignup: string;
+      linkLogin: string;
+      copyright: string;
+      designed: string;
+    };
+    chat: {
+      greeting: string;
+      placeholder: string;
+      assistantLabel: string;
+      typing: string;
+      unavailable: string;
+    };
   }
 > = {
   fr: {
@@ -155,6 +210,7 @@ export const SITE_COPY: Record<
       about: "À propos",
       contact: "Contact",
       cta: "S'inscrire maintenant",
+      login: "Se connecter",
     },
     hero: {
       title1: "Pilotez tout votre cycle COD.",
@@ -418,6 +474,93 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    faq: {
+      kicker: "Questions fréquentes",
+      title: "Tout ce que vous devez savoir",
+      titleAccent: "avant de commencer.",
+      body:
+        "Les questions les plus posées par les équipes qui découvrent NOKI Service. Votre question n'y figure pas ? Notre équipe reste joignable.",
+      more: "Encore des questions ?",
+      talk: "Parler à notre équipe →",
+      items: [
+        {
+          q: "Faut-il des compétences techniques pour utiliser NOKI Service ?",
+          a: "Non. La plateforme est pensée pour les équipes opérationnelles, pas pour des développeurs : configuration guidée, interface simple, sans ligne de code.",
+        },
+        {
+          q: "Combien de temps pour être opérationnel ?",
+          a: "Le temps de mise en route dépend de votre organisation actuelle. L'architecture est pensée pour une prise en main rapide, sans migration lourde.",
+        },
+        {
+          q: "Puis-je connecter mes outils actuels de commande ou de livraison ?",
+          a: "L'architecture est conçue pour s'adapter à différents flux existants. Chaque intégration est étudiée selon vos outils en place.",
+        },
+        {
+          q: "Quels moyens de paiement et transporteurs sont pris en charge ?",
+          a: "NOKI Service est pensé pour le paiement à la livraison et s'articule avec vos partenaires de livraison actuels ; le périmètre exact est défini selon votre marché.",
+        },
+        {
+          q: "Que se passe-t-il si je souhaite arrêter d'utiliser la plateforme ?",
+          a: "Vos données opérationnelles restent accessibles et exportables ; aucune dépendance forcée n'est imposée.",
+        },
+        {
+          q: "Mes données et celles de mes clients sont-elles protégées ?",
+          a: "La gouvernance intègre rôles, permissions et journal d'actions, avec une supervision humaine sur les étapes sensibles.",
+        },
+        {
+          q: "Le support est-il disponible en français ?",
+          a: "Oui, le support est pensé pour accompagner les équipes en français, avec une extension à d'autres langues selon les marchés ciblés.",
+        },
+      ],
+    },
+    mobile: {
+      kicker: "Mobile-friendly",
+      title: "Pilotez votre activité.",
+      titleAccent: "Où que vous soyez.",
+      body:
+        "Un contrôle pensé pour suivre vos commandes, votre stock et votre cash depuis un mobile, sans dépendre d'un poste fixe — la même plateforme, adaptée à l'écran que vous avez sous la main.",
+      dailyFigure: "Chiffre du jour",
+      shipped: "Commande expédiée",
+      shippedSub: "Livrée demain, 10h",
+      newOrder: "Nouvelle commande",
+      newOrderSub: "+69,00 $ · il y a 2 min",
+      preview: "Aperçu illustratif",
+      features: [
+        "Alertes commande en temps réel",
+        "Chiffre du jour d'un coup d'œil",
+        "Suivi du stock en déplacement",
+        "Confirmation de commande en un clic",
+      ],
+    },
+    ctaFinal: {
+      title: "Découvrez ce que NOKI Service permet de piloter.",
+      body: "Inscrivez-vous pour découvrir comment la plateforme s'adapte à votre cycle opérationnel.",
+      cta1: "S'inscrire maintenant",
+      cta2: "Contacter l'équipe",
+    },
+    footer: {
+      tagline: "Plateforme opérationnelle pensée pour le cycle du paiement à la livraison en Afrique.",
+      colPlatform: "Plateforme",
+      colTrust: "Confiance",
+      colContact: "Contact",
+      linkModules: "Modules",
+      linkCycle: "Cycle",
+      linkIA: "IA d'assistance",
+      linkSecurity: "Sécurité & gouvernance",
+      linkMarkets: "Marchés ciblés",
+      linkContact: "Contact",
+      linkSignup: "S'inscrire maintenant",
+      linkLogin: "Se connecter",
+      copyright: "© 2026 NOKI Service. Tous droits réservés.",
+      designed: "Conçu pour une gouvernance opérationnelle claire.",
+    },
+    chat: {
+      greeting: "Bonjour, je suis Idjor. Comment puis-je vous aider à comprendre la plateforme NOKI Service ?",
+      placeholder: "Posez votre question…",
+      assistantLabel: "Assistant NOKI",
+      typing: "Idjor rédige une réponse…",
+      unavailable: "Idjor est en préparation.",
+    },
   },
   en: {
     nav: {
@@ -428,6 +571,7 @@ export const SITE_COPY: Record<
       about: "About",
       contact: "Contact",
       cta: "Sign up now",
+      login: "Sign in",
     },
     hero: {
       title1: "Run your entire COD cycle.",
@@ -662,6 +806,92 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    faq: {
+      kicker: "Frequently asked questions",
+      title: "Everything you need to know",
+      titleAccent: "before getting started.",
+      body: "The most common questions from teams discovering NOKI Service. Don't see yours? Our team is reachable.",
+      more: "More questions?",
+      talk: "Talk to our team →",
+      items: [
+        {
+          q: "Do I need technical skills to use NOKI Service?",
+          a: "No. The platform is built for operational teams, not developers: guided setup, simple interface, no code required.",
+        },
+        {
+          q: "How long does it take to get up and running?",
+          a: "Onboarding time depends on your current organization. The architecture is designed for a quick start, without heavy migration.",
+        },
+        {
+          q: "Can I connect my current order or delivery tools?",
+          a: "The architecture is designed to adapt to different existing flows. Each integration is assessed based on your current tools.",
+        },
+        {
+          q: "Which payment methods and carriers are supported?",
+          a: "NOKI Service is built for cash on delivery and works alongside your current delivery partners; exact scope is defined per market.",
+        },
+        {
+          q: "What happens if I want to stop using the platform?",
+          a: "Your operational data remains accessible and exportable; no forced lock-in is imposed.",
+        },
+        {
+          q: "Is my data and my customers’ data protected?",
+          a: "Governance includes roles, permissions and an action log, with human supervision on sensitive steps.",
+        },
+        {
+          q: "Is support available in English?",
+          a: "Yes, support is designed to assist teams in English, with extension to other languages depending on target markets.",
+        },
+      ],
+    },
+    mobile: {
+      kicker: "Mobile-friendly",
+      title: "Run your business.",
+      titleAccent: "Wherever you are.",
+      body:
+        "A control layer designed to track your orders, stock and cash from a phone, with no dependency on a fixed workstation — the same platform, adapted to whatever screen you have on hand.",
+      dailyFigure: "Today's figure",
+      shipped: "Order shipped",
+      shippedSub: "Delivered tomorrow, 10am",
+      newOrder: "New order",
+      newOrderSub: "+$69.00 · 2 min ago",
+      preview: "Illustrative preview",
+      features: [
+        "Real-time order alerts",
+        "Today's figure at a glance",
+        "Stock tracking on the move",
+        "One-tap order confirmation",
+      ],
+    },
+    ctaFinal: {
+      title: "See what NOKI Service lets you run.",
+      body: "Sign up to see how the platform adapts to your operational cycle.",
+      cta1: "Sign up now",
+      cta2: "Contact the team",
+    },
+    footer: {
+      tagline: "An operational platform designed for the cash-on-delivery cycle in Africa.",
+      colPlatform: "Platform",
+      colTrust: "Trust",
+      colContact: "Contact",
+      linkModules: "Modules",
+      linkCycle: "Cycle",
+      linkIA: "AI assistant",
+      linkSecurity: "Security & governance",
+      linkMarkets: "Target markets",
+      linkContact: "Contact",
+      linkSignup: "Sign up now",
+      linkLogin: "Sign in",
+      copyright: "© 2026 NOKI Service. All rights reserved.",
+      designed: "Built for clear operational governance.",
+    },
+    chat: {
+      greeting: "Hi, I'm Idjor. How can I help you understand the NOKI Service platform?",
+      placeholder: "Ask a question…",
+      assistantLabel: "NOKI Assistant",
+      typing: "Idjor is typing a reply…",
+      unavailable: "Idjor is in development.",
+    },
   },
   ar: {
     nav: {
@@ -672,6 +902,7 @@ export const SITE_COPY: Record<
       about: "من نحن",
       contact: "اتصل بنا",
       cta: "سجّل الآن",
+      login: "تسجيل الدخول",
     },
     hero: {
       title1: "أدر دورة الدفع عند الاستلام بالكامل.",
@@ -904,6 +1135,92 @@ export const SITE_COPY: Record<
           role: "رئيسة العمليات — دوالا",
         },
       ],
+    },
+    faq: {
+      kicker: "الأسئلة الشائعة",
+      title: "كل ما تحتاج معرفته",
+      titleAccent: "قبل البدء.",
+      body: "أكثر الأسئلة شيوعًا من الفرق التي تكتشف NOKI Service. سؤالك غير موجود؟ فريقنا متاح للتواصل.",
+      more: "أسئلة أخرى؟",
+      talk: "تحدث مع فريقنا ←",
+      items: [
+        {
+          q: "هل أحتاج إلى مهارات تقنية لاستخدام NOKI Service؟",
+          a: "لا. المنصة مصمّمة للفرق التشغيلية، وليس للمطورين: إعداد موجّه، واجهة بسيطة، دون أي كتابة أكواد.",
+        },
+        {
+          q: "كم من الوقت يلزم لتصبح المنصة تشغيلية؟",
+          a: "يعتمد وقت الانطلاق على تنظيمكم الحالي. البنية مصمّمة لانطلاقة سريعة، دون ترحيل ثقيل.",
+        },
+        {
+          q: "هل يمكنني ربط أدواتي الحالية للطلبات أو التوصيل؟",
+          a: "البنية مصمّمة للتكيّف مع مختلف التدفقات القائمة. تُدرَس كل عملية دمج حسب أدواتكم الحالية.",
+        },
+        {
+          q: "ما هي وسائل الدفع وشركات التوصيل المدعومة؟",
+          a: "صُمّمت NOKI Service للدفع عند الاستلام وتتكامل مع شركاء التوصيل الحاليين لديكم؛ يُحدَّد النطاق الدقيق حسب سوقكم.",
+        },
+        {
+          q: "ماذا يحدث إذا رغبت في التوقف عن استخدام المنصة؟",
+          a: "تبقى بياناتكم التشغيلية قابلة للوصول والتصدير؛ دون أي ارتباط إجباري.",
+        },
+        {
+          q: "هل بياناتي وبيانات عملائي محمية؟",
+          a: "تتضمن الحوكمة أدوارًا وصلاحيات وسجل إجراءات، مع إشراف بشري على الخطوات الحساسة.",
+        },
+        {
+          q: "هل الدعم متوفر باللغة العربية؟",
+          a: "نعم، الدعم مصمّم لمرافقة الفرق باللغة العربية، مع إمكانية التوسع للغات أخرى حسب الأسواق المستهدفة.",
+        },
+      ],
+    },
+    mobile: {
+      kicker: "متوافق مع الهاتف المحمول",
+      title: "أدر نشاطك.",
+      titleAccent: "أينما كنت.",
+      body:
+        "تحكّم مصمّم لمتابعة طلباتكم ومخزونكم ونقدكم من الهاتف المحمول، دون الاعتماد على محطة عمل ثابتة — نفس المنصة، متكيّفة مع أي شاشة بين يديك.",
+      dailyFigure: "رقم اليوم",
+      shipped: "تم شحن الطلب",
+      shippedSub: "التسليم غدًا، الساعة 10 صباحًا",
+      newOrder: "طلب جديد",
+      newOrderSub: "69.00 دولار+ · منذ دقيقتين",
+      preview: "معاينة توضيحية",
+      features: [
+        "تنبيهات الطلبات في الوقت الفعلي",
+        "رقم اليوم بنظرة واحدة",
+        "متابعة المخزون أثناء التنقل",
+        "تأكيد الطلب بلمسة واحدة",
+      ],
+    },
+    ctaFinal: {
+      title: "اكتشف ما يمكن لـ NOKI Service أن يديره لك.",
+      body: "سجّل لتكتشف كيف تتكيّف المنصة مع دورتك التشغيلية.",
+      cta1: "سجّل الآن",
+      cta2: "تواصل مع الفريق",
+    },
+    footer: {
+      tagline: "منصة تشغيلية مصمّمة لدورة الدفع عند الاستلام في أفريقيا.",
+      colPlatform: "المنصة",
+      colTrust: "الثقة",
+      colContact: "اتصل بنا",
+      linkModules: "الوحدات",
+      linkCycle: "الدورة",
+      linkIA: "المساعد الذكي",
+      linkSecurity: "الأمان والحوكمة",
+      linkMarkets: "الأسواق المستهدفة",
+      linkContact: "اتصل بنا",
+      linkSignup: "سجّل الآن",
+      linkLogin: "تسجيل الدخول",
+      copyright: "© 2026 NOKI Service. جميع الحقوق محفوظة.",
+      designed: "مصمّمة لحوكمة تشغيلية واضحة.",
+    },
+    chat: {
+      greeting: "مرحبًا، أنا إيدجور. كيف يمكنني مساعدتك على فهم منصة NOKI Service؟",
+      placeholder: "اطرح سؤالك…",
+      assistantLabel: "مساعد NOKI",
+      typing: "إيدجور يكتب ردًا…",
+      unavailable: "إدجور قيد التحضير.",
     },
   },
 };

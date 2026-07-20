@@ -24,7 +24,7 @@ export function Hero({ language }: HeroProps) {
         <p className="noki-hero-subtitle">{labels.hero.subtitle}</p>
 
         <div className="noki-hero-actions">
-          <a className="noki-hero-cta-primary" href="#contact">
+          <a className="noki-hero-cta-primary" href="/register">
             {labels.nav.cta}
           </a>
           <a className="noki-hero-cta-secondary" href="#modules">
