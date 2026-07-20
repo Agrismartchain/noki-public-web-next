@@ -1,7 +1,10 @@
+import { Header } from "@/components/site/Header";
+
 export default function Home() {
   return (
-    <main>
-      <div>Hello world!</div>
-    </main>
+    <div className="site-shell" id="top">
+      <Header />
+      <main className="site-main" />
+    </div>
   );
 }
