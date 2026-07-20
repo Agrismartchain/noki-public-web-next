@@ -605,6 +605,289 @@ a:focus-visible {
   background: linear-gradient(90deg, var(--color-cyan), var(--color-accent));
 }
 
+.noki-modules {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 60px 40px 110px;
+}
+
+.noki-modules-intro {
+  max-width: 640px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.noki-modules-intro h6 {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noki-modules-intro h2 {
+  margin: 0 0 14px;
+  font-family: var(--active-font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.noki-modules-intro p {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.68);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+.noki-modules-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: start;
+  gap: 26px;
+}
+
+.noki-modules-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.noki-module-card,
+.noki-modules-row {
+  width: 100%;
+  border: 0;
+  appearance: none;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.noki-module-card {
+  padding: 18px;
+  border: 1px solid var(--color-divider);
+  border-radius: 14px;
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+.noki-module-card[data-active="true"] {
+  border-color: rgba(255, 213, 0, 0.4);
+}
+
+.noki-module-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.noki-module-card[data-active="true"] .noki-module-card-head {
+  margin-bottom: 10px;
+}
+
+.noki-module-badge {
+  display: flex;
+  width: 26px;
+  height: 26px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(238, 241, 250, 0.6);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.noki-module-card[data-active="true"] .noki-module-badge {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+.noki-module-card[data-done="true"] .noki-module-badge {
+  background: rgba(126, 227, 168, 0.15);
+  color: #7ee3a8;
+}
+
+.noki-module-badge svg {
+  display: block;
+}
+
+.noki-module-card-title {
+  font-family: var(--active-font-heading);
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.noki-module-card-desc {
+  display: block;
+  margin: 0 0 12px 38px;
+  color: rgba(238, 241, 250, 0.65);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.noki-module-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 38px;
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--color-surface-2);
+}
+
+.noki-module-bullet {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: rgba(238, 241, 250, 0.7);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.noki-module-bullet span {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.noki-modules-panel {
+  padding: 20px;
+  border: 1px solid var(--color-divider);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.noki-modules-progress-track {
+  height: 5px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  border-radius: 4px;
+  background: var(--color-surface-2);
+}
+
+.noki-modules-progress-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--color-cyan), var(--color-accent));
+}
+
+.noki-modules-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.noki-modules-building {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 16px;
+  background: rgba(255, 213, 0, 0.12);
+  color: var(--color-accent-300);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.noki-modules-building span {
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.noki-modules-fraction {
+  color: rgba(238, 241, 250, 0.45);
+  font-size: 11.5px;
+}
+
+.noki-modules-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.noki-modules-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 11px 14px;
+  border: 1px solid var(--color-divider);
+  border-radius: 11px;
+  background: transparent;
+  color: var(--color-text);
+}
+
+.noki-modules-row[data-active="true"] {
+  border-color: rgba(255, 213, 0, 0.4);
+  background: rgba(255, 213, 0, 0.05);
+}
+
+.noki-modules-row > span:first-child {
+  color: var(--color-text);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.noki-modules-row:not([data-active="true"]):not([data-ready="true"]) > span:first-child {
+  color: rgba(238, 241, 250, 0.45);
+}
+
+.noki-modules-row > span:last-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex: none;
+  padding: 3px 9px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(238, 241, 250, 0.45);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.noki-modules-row[data-active="true"] > span:last-child {
+  background: rgba(63, 212, 255, 0.15);
+  color: var(--color-cyan);
+}
+
+.noki-modules-row[data-ready="true"] > span:last-child {
+  background: rgba(126, 227, 168, 0.15);
+  color: #7ee3a8;
+}
+
+.noki-modules-cta-wrap {
+  margin-top: 44px;
+  text-align: center;
+}
+
+.noki-modules-cta {
+  display: inline-block;
+  padding: 15px 32px;
+  border-radius: 10px;
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+  box-shadow: 0 14px 34px rgba(255, 213, 0, 0.25);
+  font-family: var(--active-font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -662,6 +945,19 @@ a:focus-visible {
     }
   }
 
+  @keyframes pulseGlow {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
   .noki-navlink {
     transition:
       background 0.25s ease,
@@ -684,6 +980,25 @@ a:focus-visible {
   .noki-bar-fill-b {
     transition: width 1.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
+
+  .noki-module-card {
+    transition: border-color 0.4s ease;
+  }
+
+  .noki-modules-progress-fill {
+    transition: width 1s ease;
+  }
+
+  .noki-modules-building span {
+    animation: pulseGlow 1.6s ease-in-out infinite;
+  }
+
+  .noki-modules-row {
+    transition:
+      border-color 0.4s ease,
+      background 0.4s ease,
+      color 0.4s ease;
+  }
 }
 
 @media (max-width: 1080px) {
@@ -693,5 +1008,16 @@ a:focus-visible {
 
   .noki-menu-btn {
     display: flex;
+  }
+}
+
+@media (max-width: 900px) {
+  .noki-modules {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .noki-modules-grid {
+    grid-template-columns: 1fr;
   }
 }

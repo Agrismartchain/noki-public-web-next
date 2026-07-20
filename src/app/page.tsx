@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
+import { ModulesShowcase } from "@/components/site/ModulesShowcase";
 import { WhyNoki } from "@/components/site/WhyNoki";
 import type { Language } from "@/components/site/content";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="site-main">
         <Hero language={language} />
         <WhyNoki language={language} />
+        <ModulesShowcase language={language} />
       </main>
     </div>
   );

@@ -40,6 +40,21 @@ export const SITE_COPY: Record<
       }[];
       ringLegend: string[];
     };
+    modules: {
+      kicker: string;
+      title: string;
+      body: string;
+      building: string;
+      ctaFinal: string;
+      statusReady: string;
+      statusProgress: string;
+      statusQueued: string;
+      data: {
+        title: string;
+        desc: string;
+        bullets: string[];
+      }[];
+    };
   }
 > = {
   fr: {
@@ -95,6 +110,69 @@ export const SITE_COPY: Record<
         "Cash & reversements",
       ],
     },
+    modules: {
+      kicker: "Modules",
+      title: "Chaque étape du cycle, un module dédié.",
+      body:
+        "Des briques opérationnelles pensées pour s'articuler ensemble, du premier contact client au reversement final.",
+      building: "Construction de votre plateforme…",
+      ctaFinal: "Commencer maintenant →",
+      statusReady: "PRÊT",
+      statusProgress: "EN COURS",
+      statusQueued: "EN FILE",
+      data: [
+        {
+          title: "Commandes & confirmation",
+          desc: "Centralisez la réception des commandes et structurez la confirmation client.",
+          bullets: [
+            "Réception centralisée des commandes",
+            "Confirmation client structurée",
+            "Historique consultable par équipe",
+          ],
+        },
+        {
+          title: "Stock & préparation",
+          desc: "Réservez le stock et coordonnez la préparation des commandes.",
+          bullets: [
+            "Réservation automatique du stock",
+            "Suivi de la préparation en temps réel",
+            "Alertes sur les ruptures",
+          ],
+        },
+        {
+          title: "Livraison & dispatch",
+          desc: "Organisez le dispatch et suivez la livraison en temps réel.",
+          bullets: [
+            "Attribution des livraisons par zone",
+            "Suivi du statut en direct",
+            "Coordination avec les livreurs",
+          ],
+        },
+        {
+          title: "COD & reversements",
+          desc: "Rapprochez le cash collecté et structurez les reversements.",
+          bullets: ["Rapprochement du cash collecté", "Suivi des reversements par livreur", "Historique consultable"],
+        },
+        {
+          title: "Gouvernance",
+          desc: "Rôles, permissions et périmètres clairs pour chaque équipe.",
+          bullets: [
+            "Rôles et permissions par équipe",
+            "Périmètres d'accès définis",
+            "Validation humaine sur les actions sensibles",
+          ],
+        },
+        {
+          title: "Automatisation supervisée",
+          desc: "Des tâches répétitives assistées, toujours validées par une personne.",
+          bullets: [
+            "Tâches répétitives assistées",
+            "Suggestions soumises à validation",
+            "Aucune action automatique sans accord",
+          ],
+        },
+      ],
+    },
   },
   en: {
     nav: {
@@ -144,6 +222,48 @@ export const SITE_COPY: Record<
       ],
       ringLegend: ["Orders & confirmation", "Stock & preparation", "Delivery & dispatch", "Cash & reversals"],
     },
+    modules: {
+      kicker: "Modules",
+      title: "A dedicated module for every stage of the cycle.",
+      body: "Operational building blocks designed to work together, from first customer contact to final reversal.",
+      building: "Building your platform…",
+      ctaFinal: "Get started now →",
+      statusReady: "READY",
+      statusProgress: "IN PROGRESS",
+      statusQueued: "QUEUED",
+      data: [
+        {
+          title: "Orders & confirmation",
+          desc: "Centralize order intake and structure customer confirmation.",
+          bullets: ["Centralized order intake", "Structured customer confirmation", "Team-wide history"],
+        },
+        {
+          title: "Stock & preparation",
+          desc: "Reserve stock and coordinate order preparation.",
+          bullets: ["Automatic stock reservation", "Real-time preparation tracking", "Stockout alerts"],
+        },
+        {
+          title: "Delivery & dispatch",
+          desc: "Organize dispatch and track deliveries in real time.",
+          bullets: ["Zone-based delivery assignment", "Live status tracking", "Coordination with couriers"],
+        },
+        {
+          title: "COD & reversals",
+          desc: "Reconcile collected cash and structure reversals.",
+          bullets: ["Collected cash reconciliation", "Per-courier reversal tracking", "Consultable history"],
+        },
+        {
+          title: "Governance",
+          desc: "Clear roles, permissions and scopes for every team.",
+          bullets: ["Roles and permissions per team", "Defined access scopes", "Human validation on sensitive actions"],
+        },
+        {
+          title: "Supervised automation",
+          desc: "Repetitive tasks assisted, always validated by a person.",
+          bullets: ["Assisted repetitive tasks", "Suggestions subject to validation", "No automatic action without approval"],
+        },
+      ],
+    },
   },
   ar: {
     nav: {
@@ -192,6 +312,48 @@ export const SITE_COPY: Record<
         },
       ],
       ringLegend: ["الطلبات والتأكيد", "المخزون والتحضير", "التوصيل والتوزيع", "النقد والتسويات"],
+    },
+    modules: {
+      kicker: "الوحدات",
+      title: "وحدة مخصّصة لكل مرحلة من الدورة.",
+      body: "لبنات تشغيلية مصمّمة للعمل معًا، من أول تواصل مع العميل حتى التسوية النهائية.",
+      building: "جارٍ بناء منصتك…",
+      ctaFinal: "ابدأ الآن ←",
+      statusReady: "جاهز",
+      statusProgress: "قيد التنفيذ",
+      statusQueued: "في الانتظار",
+      data: [
+        {
+          title: "الطلبات والتأكيد",
+          desc: "مركزة استقبال الطلبات وهيكلة تأكيد العميل.",
+          bullets: ["استقبال مركزي للطلبات", "تأكيد منظم للعميل", "سجل قابل للاطلاع لكل فريق"],
+        },
+        {
+          title: "المخزون والتحضير",
+          desc: "حجز المخزون وتنسيق تحضير الطلبات.",
+          bullets: ["حجز تلقائي للمخزون", "متابعة التحضير في الوقت الفعلي", "تنبيهات النفاد"],
+        },
+        {
+          title: "التوصيل والتوزيع",
+          desc: "تنظيم التوزيع ومتابعة التوصيل في الوقت الفعلي.",
+          bullets: ["تخصيص التوصيل حسب المنطقة", "متابعة الحالة مباشرة", "تنسيق مع عمال التوصيل"],
+        },
+        {
+          title: "الدفع عند الاستلام والتسويات",
+          desc: "تسوية النقد المُحصّل وهيكلة التسويات.",
+          bullets: ["تسوية النقد المُحصّل", "متابعة التسويات لكل عامل توصيل", "سجل قابل للاطلاع"],
+        },
+        {
+          title: "الحوكمة",
+          desc: "أدوار وصلاحيات ونطاقات واضحة لكل فريق.",
+          bullets: ["أدوار وصلاحيات لكل فريق", "نطاقات وصول محددة", "تحقق بشري في الإجراءات الحساسة"],
+        },
+        {
+          title: "أتمتة خاضعة للإشراف",
+          desc: "مهام متكررة مدعومة، تخضع دائمًا للتحقق البشري.",
+          bullets: ["مهام متكررة مدعومة", "اقتراحات خاضعة للتحقق", "لا إجراء تلقائي دون موافقة"],
+        },
+      ],
     },
   },
 };
