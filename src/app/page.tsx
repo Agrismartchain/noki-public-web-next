@@ -11,6 +11,7 @@ import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { ModulesShowcase } from "@/components/site/ModulesShowcase";
 import { SecurityGovernance } from "@/components/site/SecurityGovernance";
+import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { WhyNoki } from "@/components/site/WhyNoki";
 import type { Language } from "@/components/site/content";
 
@@ -30,6 +31,7 @@ export default function Home() {
         <SecurityGovernance language={language} />
         <AfricaMarketsMap language={language} />
         <BenefitsGrid language={language} />
+        <TestimonialsSection language={language} />
       </main>
     </div>
   );
