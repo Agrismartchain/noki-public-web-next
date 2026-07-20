@@ -114,6 +114,14 @@ export const SITE_COPY: Record<
       cardDesc: string;
       loading: string;
     };
+    benefits: {
+      kicker: string;
+      title: string;
+      items: {
+        title: string;
+        desc: string;
+      }[];
+    };
   }
 > = {
   fr: {
@@ -345,6 +353,18 @@ export const SITE_COPY: Record<
       cardDesc: "Marché ciblé — architecture pensée pour s'y déployer avec une gouvernance adaptée.",
       loading: "Chargement de la carte…",
     },
+    benefits: {
+      kicker: "Pourquoi choisir NOKI",
+      title: "La valeur d'un pilotage centralisé.",
+      items: [
+        { title: "Visibilité", desc: "Une vue consolidée sur l'ensemble du cycle opérationnel." },
+        { title: "Centralisation", desc: "Un seul environnement pour piloter commandes, stock et cash." },
+        { title: "Contrôle", desc: "Des permissions et une gouvernance clairement définies." },
+        { title: "Coordination", desc: "Des équipes alignées sur un même référentiel opérationnel." },
+        { title: "Gouvernance", desc: "Une structure de validation pensée pour la confiance." },
+        { title: "Évolutivité", desc: "Une architecture adaptable aux marchés ciblés." },
+      ],
+    },
   },
   en: {
     nav: {
@@ -547,6 +567,18 @@ export const SITE_COPY: Record<
       cardDesc: "Target market — architecture designed to deploy there with adapted governance.",
       loading: "Loading map…",
     },
+    benefits: {
+      kicker: "Why choose NOKI",
+      title: "The value of centralized control.",
+      items: [
+        { title: "Visibility", desc: "A consolidated view across the entire operational cycle." },
+        { title: "Centralization", desc: "A single environment to run orders, stock and cash." },
+        { title: "Control", desc: "Clearly defined permissions and governance." },
+        { title: "Coordination", desc: "Teams aligned on the same operational reference." },
+        { title: "Governance", desc: "A validation structure built for trust." },
+        { title: "Scalability", desc: "An architecture adaptable to target markets." },
+      ],
+    },
   },
   ar: {
     nav: {
@@ -748,6 +780,18 @@ export const SITE_COPY: Record<
       body: "بنية قابلة للتكيّف، مصمّمة للتوسع مع استهداف أسواق جديدة.",
       cardDesc: "سوق مستهدف — بنية مصمّمة للانتشار فيه بحوكمة مناسبة.",
       loading: "جارٍ تحميل الخريطة…",
+    },
+    benefits: {
+      kicker: "لماذا تختار NOKI",
+      title: "قيمة القيادة المركزية.",
+      items: [
+        { title: "الرؤية", desc: "نظرة موحّدة على الدورة التشغيلية بأكملها." },
+        { title: "المركزية", desc: "بيئة واحدة لإدارة الطلبات والمخزون والنقد." },
+        { title: "التحكّم", desc: "صلاحيات وحوكمة محددة بوضوح." },
+        { title: "التنسيق", desc: "فرق متناسقة حول مرجع تشغيلي واحد." },
+        { title: "الحوكمة", desc: "بنية تحقق مصمّمة لبناء الثقة." },
+        { title: "قابلية التوسع", desc: "بنية قابلة للتكيّف مع الأسواق المستهدفة." },
+      ],
     },
   },
 };

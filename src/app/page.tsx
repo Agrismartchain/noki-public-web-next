@@ -4,6 +4,7 @@ import { useState } from "react";
 
 import { AiAssistantPreview } from "@/components/site/AiAssistantPreview";
 import { AfricaMarketsMap } from "@/components/site/AfricaMarketsMap";
+import { BenefitsGrid } from "@/components/site/BenefitsGrid";
 import { CourierAppPreview } from "@/components/site/CourierAppPreview";
 import { CycleTimeline } from "@/components/site/CycleTimeline";
 import { Header } from "@/components/site/Header";
@@ -28,6 +29,7 @@ export default function Home() {
         <CourierAppPreview language={language} />
         <SecurityGovernance language={language} />
         <AfricaMarketsMap language={language} />
+        <BenefitsGrid language={language} />
       </main>
     </div>
   );
