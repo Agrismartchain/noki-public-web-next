@@ -904,6 +904,475 @@ textarea:focus-visible,
   text-decoration: none;
 }
 
+.noki-integrations {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 40px 110px;
+  border-top: 1px solid var(--color-divider);
+  background:
+    radial-gradient(760px 360px at 15% 14%, rgba(63, 212, 255, 0.12), transparent 62%),
+    radial-gradient(720px 340px at 86% 10%, rgba(255, 213, 0, 0.09), transparent 64%),
+    linear-gradient(180deg, rgba(10, 15, 30, 0.25), rgba(5, 8, 16, 0.92));
+}
+
+.noki-integrations-glow {
+  position: absolute;
+  pointer-events: none;
+  filter: blur(6px);
+}
+
+.noki-integrations-glow-a {
+  top: 140px;
+  left: -80px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(63, 212, 255, 0.14), transparent 68%);
+}
+
+.noki-integrations-glow-b {
+  right: -120px;
+  bottom: 120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 213, 0, 0.12), transparent 70%);
+}
+
+.noki-integrations-intro {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.noki-integrations-intro h6 {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noki-integrations-intro h2 {
+  margin: 0 0 14px;
+  font-family: var(--active-font-heading);
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
+}
+
+.noki-integrations-intro p {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.72);
+  font-size: 15.5px;
+  line-height: 1.65;
+}
+
+.noki-integrations-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  max-width: 1360px;
+  grid-template-columns: minmax(250px, 0.82fr) minmax(360px, 1.18fr) minmax(280px, 0.95fr);
+  align-items: start;
+  gap: 18px;
+  margin: 0 auto;
+}
+
+.noki-integrations-tools,
+.noki-integrations-flow,
+.noki-integrations-detail > article,
+.noki-integrations-capabilities {
+  border: 1px solid var(--color-divider);
+  background: rgba(15, 23, 48, 0.76);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.32);
+}
+
+.noki-integrations-tools,
+.noki-integrations-flow {
+  border-radius: 18px;
+}
+
+.noki-integrations-tools {
+  padding: 20px;
+}
+
+.noki-integrations-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.noki-integrations-panel-head span,
+.noki-integrations-postbacks h3,
+.noki-integrations-universal h3,
+.noki-integrations-capabilities h3 {
+  margin: 0;
+  font-family: var(--active-font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noki-integrations-panel-head small {
+  color: rgba(238, 241, 250, 0.5);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noki-integrations-connectors {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.noki-integration-connector {
+  display: grid;
+  min-height: 68px;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid var(--color-divider);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.noki-integration-mark {
+  position: relative;
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(5, 8, 16, 0.72);
+  color: var(--color-cyan);
+  box-shadow: inset 0 0 0 1px rgba(63, 212, 255, 0.24);
+}
+
+.noki-integration-mark[data-logo-fit] {
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.26);
+}
+
+.noki-integration-mark span {
+  position: absolute;
+  inset: 9px;
+  border: 1px solid rgba(255, 213, 0, 0.42);
+  border-radius: 10px;
+}
+
+.noki-integration-mark[data-logo-fit] > span {
+  display: none;
+}
+
+.noki-integration-mark strong {
+  position: relative;
+  font-family: var(--active-font-heading);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.noki-integration-logo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 35px;
+  max-height: 28px;
+  object-fit: contain;
+}
+
+.noki-integration-mark[data-logo-fit="badge"] .noki-integration-logo {
+  max-width: 31px;
+  max-height: 31px;
+}
+
+.noki-integration-card-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+}
+
+.noki-integration-name {
+  min-width: 0;
+  color: var(--color-text);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.noki-integration-status {
+  width: fit-content;
+  flex: none;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 213, 0, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 213, 0, 0.09);
+  color: var(--color-accent-300);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.noki-integrations-flow {
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  background:
+    linear-gradient(180deg, rgba(63, 212, 255, 0.08), transparent 32%),
+    rgba(15, 23, 48, 0.82);
+}
+
+.noki-flow-stream {
+  position: absolute;
+  inset: 26px 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(63, 212, 255, 0), rgba(63, 212, 255, 0.32), rgba(255, 213, 0, 0));
+  pointer-events: none;
+}
+
+html[data-lang="ar"] .noki-flow-stream {
+  transform: translateX(50%);
+}
+
+.noki-flow-stream span {
+  position: absolute;
+  left: -3px;
+  width: 7px;
+  height: 34px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, transparent, var(--color-cyan), var(--color-accent), transparent);
+  opacity: 0.58;
+}
+
+.noki-flow-stream span:nth-child(1) {
+  top: 8%;
+}
+
+.noki-flow-stream span:nth-child(2) {
+  top: 42%;
+}
+
+.noki-flow-stream span:nth-child(3) {
+  top: 70%;
+}
+
+.noki-flow-step-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.noki-flow-step {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: min(100%, 430px);
+  min-height: 58px;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border: 1px solid var(--color-divider);
+  border-radius: 14px;
+  background: rgba(5, 8, 16, 0.76);
+}
+
+.noki-flow-step[data-kind="centralApi"] {
+  border-color: rgba(255, 213, 0, 0.35);
+  background: rgba(255, 213, 0, 0.08);
+}
+
+.noki-flow-step[data-kind="postbacks"] {
+  border-color: rgba(63, 212, 255, 0.34);
+  background: rgba(63, 212, 255, 0.08);
+}
+
+.noki-flow-dot {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 5px rgba(255, 213, 0, 0.09);
+}
+
+.noki-flow-step strong {
+  color: var(--color-text);
+  font-family: var(--active-font-heading);
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noki-flow-operations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-inline-start: auto;
+}
+
+.noki-flow-operations span {
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(238, 241, 250, 0.7);
+  font-size: 10.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.noki-flow-arrow {
+  position: relative;
+  width: 1px;
+  height: 22px;
+  background: linear-gradient(180deg, rgba(63, 212, 255, 0.7), rgba(255, 213, 0, 0.72));
+}
+
+.noki-flow-arrow::after {
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid rgba(255, 213, 0, 0.85);
+  border-bottom: 1px solid rgba(255, 213, 0, 0.85);
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.noki-integrations-detail {
+  display: grid;
+  align-self: stretch;
+  align-content: space-between;
+  gap: 18px;
+}
+
+.noki-integrations-detail > article {
+  border-radius: 18px;
+}
+
+.noki-integrations-universal {
+  padding: 22px;
+}
+
+.noki-integrations-universal > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.noki-integrations-universal span {
+  flex: none;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(63, 212, 255, 0.12);
+  color: var(--color-cyan);
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.noki-integrations-universal p,
+.noki-integrations-postbacks p {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.68);
+  font-size: 13px;
+  line-height: 1.62;
+}
+
+.noki-integrations-postbacks {
+  padding: 22px;
+}
+
+.noki-integrations-postbacks ol {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.noki-integrations-postbacks li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(238, 241, 250, 0.78);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.noki-integrations-postbacks li span {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 5px rgba(255, 213, 0, 0.08);
+}
+
+.noki-integrations-capabilities {
+  position: relative;
+  z-index: 1;
+  max-width: 1360px;
+  margin: 18px auto 0;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.noki-integrations-capabilities h3 {
+  margin-bottom: 16px;
+}
+
+.noki-integrations-capabilities > div {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.noki-integration-capability {
+  min-width: 0;
+  padding: 13px;
+  border: 1px solid var(--color-divider);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.noki-integration-capability strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--color-accent-300);
+  font-family: var(--active-font-heading);
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.noki-integration-capability span {
+  display: block;
+  color: rgba(238, 241, 250, 0.66);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
 .noki-cycle {
   padding: 60px 40px 110px;
   border-top: 1px solid var(--color-divider);
@@ -3870,6 +4339,36 @@ html[data-lang="ar"] .noki-login-visual {
     }
   }
 
+  @keyframes nokiDataFlow {
+    0% {
+      opacity: 0;
+      transform: translateY(-28px);
+    }
+
+    18%,
+    72% {
+      opacity: 0.72;
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(74px);
+    }
+  }
+
+  @keyframes nokiSoftPulse {
+    0%,
+    100% {
+      opacity: 0.58;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.18);
+    }
+  }
+
   .noki-navlink {
     transition:
       background 0.25s ease,
@@ -3925,6 +4424,32 @@ html[data-lang="ar"] .noki-login-visual {
       border-color 0.4s ease,
       background 0.4s ease,
       color 0.4s ease;
+  }
+
+  .noki-integration-connector,
+  .noki-flow-step,
+  .noki-integration-capability {
+    transition:
+      border-color 0.25s ease-out,
+      transform 0.25s ease-out,
+      background 0.25s ease-out;
+  }
+
+  .noki-flow-stream span {
+    animation: nokiDataFlow 3.2s ease-in-out infinite;
+  }
+
+  .noki-flow-stream span:nth-child(2) {
+    animation-delay: 0.85s;
+  }
+
+  .noki-flow-stream span:nth-child(3) {
+    animation-delay: 1.7s;
+  }
+
+  .noki-flow-dot,
+  .noki-integrations-postbacks li span {
+    animation: nokiSoftPulse 2.4s ease-in-out infinite;
   }
 
   .noki-cycle-line-progress {
@@ -4099,6 +4624,27 @@ html[data-lang="ar"] .noki-login-visual {
     grid-template-columns: 1fr;
   }
 
+  .noki-integrations {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .noki-integrations-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .noki-integrations-connectors {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .noki-integrations-detail {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .noki-integrations-capabilities > div {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .noki-faq {
     padding-right: 24px;
     padding-left: 24px;
@@ -4207,6 +4753,7 @@ html[data-lang="ar"] .noki-login-visual {
   .noki-hero,
   .noki-why,
   .noki-modules,
+  .noki-integrations,
   .noki-ai,
   .noki-courier,
   .noki-security,
@@ -4227,6 +4774,36 @@ html[data-lang="ar"] .noki-login-visual {
 
   .noki-hero-title {
     font-size: 36px;
+  }
+
+  .noki-integrations {
+    padding-top: 58px;
+    padding-bottom: 78px;
+  }
+
+  .noki-integrations-intro h2 {
+    font-size: 31px;
+  }
+
+  .noki-integrations-connectors,
+  .noki-integrations-detail,
+  .noki-integrations-capabilities > div {
+    grid-template-columns: 1fr;
+  }
+
+  .noki-integrations-panel-head,
+  .noki-integrations-universal > div {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .noki-flow-step {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .noki-flow-operations {
+    margin-inline-start: 0;
   }
 
   .noki-hero-actions,

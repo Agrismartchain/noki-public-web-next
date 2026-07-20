@@ -11,6 +11,7 @@ import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { IdjorWidget } from "@/components/site/IdjorWidget";
+import { IntegrationsSection } from "@/components/site/IntegrationsSection";
 import { useSiteLanguage } from "@/components/site/LanguageProvider";
 import { MobileFriendlySection } from "@/components/site/MobileFriendlySection";
 import { ModulesShowcase } from "@/components/site/ModulesShowcase";
@@ -28,6 +29,7 @@ export function HomePage() {
         <Hero language={language} />
         <WhyNoki language={language} />
         <ModulesShowcase language={language} />
+        <IntegrationsSection language={language} />
         <CycleTimeline language={language} />
         <AiAssistantPreview language={language} />
         <CourierAppPreview language={language} />

@@ -56,6 +56,38 @@ export const SITE_COPY: Record<
         bullets: string[];
       }[];
     };
+    integrations: {
+      kicker: string;
+      title: string;
+      body: string;
+      connectorsTitle: string;
+      flowTitle: string;
+      flow: {
+        sellerTools: string;
+        nokiConnector: string;
+        centralApi: string;
+        operations: string;
+        postbacks: string;
+        sellerSystem: string;
+      };
+      connectors: {
+        name: string;
+        mark: string;
+        status: string;
+      }[];
+      operations: string[];
+      universalTitle: string;
+      universalBody: string;
+      plannedStatus: string;
+      postbacksTitle: string;
+      postbacksNote: string;
+      postbackEvents: string[];
+      capabilitiesTitle: string;
+      capabilities: {
+        title: string;
+        items: string[];
+      }[];
+    };
     cycle: {
       kicker: string;
       title: string;
@@ -316,6 +348,48 @@ export const SITE_COPY: Record<
             "Aucune action automatique sans accord",
           ],
         },
+      ],
+    },
+    integrations: {
+      kicker: "Intégrations e-commerce",
+      title: "Connectez vos outils. NOKI orchestre le reste.",
+      body:
+        "Conservez votre stack e-commerce existant : Google Sheets, Shopify, WooCommerce, YouCan, Storeino, CRM, ERP ou back-office. NOKI centralise la synchronisation des commandes via son API e-commerce, puis restitue les statuts avec webhooks et postbacks selon l’intégration configurée.",
+      connectorsTitle: "Outils vendeur",
+      flowTitle: "Architecture API-only",
+      flow: {
+        sellerTools: "Plateforme vendeur / CRM",
+        nokiConnector: "API ou connecteur NOKI",
+        centralApi: "API centrale NOKI",
+        operations: "Traitement opérationnel",
+        postbacks: "Webhooks / postbacks",
+        sellerSystem: "Système vendeur",
+      },
+      connectors: [
+        { name: "Google Sheets", mark: "GS", status: "En préparation" },
+        { name: "Shopify", mark: "SH", status: "En préparation" },
+        { name: "WooCommerce", mark: "WC", status: "En préparation" },
+        { name: "YouCan", mark: "YC", status: "En préparation" },
+        { name: "Storeino", mark: "ST", status: "En préparation" },
+        { name: "API / CRM / ERP", mark: "API", status: "Architecture API" },
+      ],
+      operations: ["Confirmation", "Stock", "Fulfillment", "Dispatch", "Livraison", "COD", "Retours"],
+      universalTitle: "API universelle pour systèmes propriétaires",
+      universalBody:
+        "Connectez votre CRM, ERP, back-office, marketplace ou application métier à l’architecture NOKI via API, webhooks et postbacks sécurisés.",
+      plannedStatus: "Architecture prévue",
+      postbacksTitle: "Exemple de timeline postback",
+      postbacksNote:
+        "Et d’autres événements opérationnels selon les droits et l’intégration configurée.",
+      postbackEvents: ["Commande reçue", "Confirmée", "En livraison", "Livrée", "Rapprochée"],
+      capabilitiesTitle: "Capacités techniques prévues",
+      capabilities: [
+        { title: "Sécurité", items: ["Signatures", "Webhooks entrants contrôlés"] },
+        { title: "Fiabilité", items: ["Idempotence", "Retries contrôlés"] },
+        { title: "Mapping", items: ["Mapping des statuts", "Mapping des champs"] },
+        { title: "Observabilité", items: ["API documentée", "Logs d’intégration"] },
+        { title: "Credentials", items: ["Scopes dédiés", "Rotation et révocation"] },
+        { title: "Replay", items: ["Historique des tentatives", "Replay d’événements échoués"] },
       ],
     },
     cycle: {
@@ -653,6 +727,47 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    integrations: {
+      kicker: "E-commerce integrations",
+      title: "Connect your tools. NOKI orchestrates the rest.",
+      body:
+        "Keep your existing e-commerce stack: Google Sheets, Shopify, WooCommerce, YouCan, Storeino, CRM, ERP or back office. NOKI centralizes order synchronization through its e-commerce API, then returns statuses through webhooks and postbacks depending on the configured integration.",
+      connectorsTitle: "Seller tools",
+      flowTitle: "API-only architecture",
+      flow: {
+        sellerTools: "Seller platform / CRM",
+        nokiConnector: "NOKI API or connector",
+        centralApi: "NOKI central API",
+        operations: "Operational processing",
+        postbacks: "Webhooks / postbacks",
+        sellerSystem: "Seller system",
+      },
+      connectors: [
+        { name: "Google Sheets", mark: "GS", status: "Coming soon" },
+        { name: "Shopify", mark: "SH", status: "Coming soon" },
+        { name: "WooCommerce", mark: "WC", status: "Coming soon" },
+        { name: "YouCan", mark: "YC", status: "Coming soon" },
+        { name: "Storeino", mark: "ST", status: "Coming soon" },
+        { name: "API / CRM / ERP", mark: "API", status: "API architecture" },
+      ],
+      operations: ["Confirmation", "Stock", "Fulfillment", "Dispatch", "Delivery", "COD", "Returns"],
+      universalTitle: "Universal API for proprietary systems",
+      universalBody:
+        "Connect your CRM, ERP, back office, marketplace or business application to the NOKI architecture through secure APIs, webhooks and postbacks.",
+      plannedStatus: "Planned architecture",
+      postbacksTitle: "Example postback timeline",
+      postbacksNote: "And additional operational events depending on permissions and integration configuration.",
+      postbackEvents: ["Order received", "Confirmed", "Out for delivery", "Delivered", "Reconciled"],
+      capabilitiesTitle: "Planned technical capabilities",
+      capabilities: [
+        { title: "Security", items: ["Signatures", "Controlled inbound webhooks"] },
+        { title: "Reliability", items: ["Idempotence", "Controlled retries"] },
+        { title: "Mapping", items: ["Status mapping", "Field mapping"] },
+        { title: "Observability", items: ["Documented API", "Integration logs"] },
+        { title: "Credentials", items: ["Dedicated scopes", "Rotation and revocation"] },
+        { title: "Replay", items: ["Attempt history", "Failed event replay"] },
+      ],
+    },
     cycle: {
       kicker: "Full cycle",
       title: "From order to reversal, one single line.",
@@ -982,6 +1097,47 @@ export const SITE_COPY: Record<
           desc: "مهام متكررة مدعومة، تخضع دائمًا للتحقق البشري.",
           bullets: ["مهام متكررة مدعومة", "اقتراحات خاضعة للتحقق", "لا إجراء تلقائي دون موافقة"],
         },
+      ],
+    },
+    integrations: {
+      kicker: "تكاملات التجارة الإلكترونية",
+      title: "اربط أدواتك. NOKI يتولى تنسيق بقية العمليات.",
+      body:
+        "احتفظ بمنظومة التجارة الإلكترونية الحالية لديك: Google Sheets أو Shopify أو WooCommerce أو YouCan أو Storeino أو CRM أو ERP أو لوحة خلفية. تعمل NOKI على مركزة مزامنة الطلبات عبر واجهة API للتجارة الإلكترونية، ثم تعيد الحالات عبر webhooks وpostbacks حسب إعداد التكامل.",
+      connectorsTitle: "أدوات البائع",
+      flowTitle: "بنية تعتمد على API فقط",
+      flow: {
+        sellerTools: "منصة البائع / CRM",
+        nokiConnector: "API أو موصل NOKI",
+        centralApi: "واجهة NOKI المركزية",
+        operations: "المعالجة التشغيلية",
+        postbacks: "Webhooks / postbacks",
+        sellerSystem: "نظام البائع",
+      },
+      connectors: [
+        { name: "Google Sheets", mark: "GS", status: "قيد الإعداد" },
+        { name: "Shopify", mark: "SH", status: "قيد الإعداد" },
+        { name: "WooCommerce", mark: "WC", status: "قيد الإعداد" },
+        { name: "YouCan", mark: "YC", status: "قيد الإعداد" },
+        { name: "Storeino", mark: "ST", status: "قيد الإعداد" },
+        { name: "API / CRM / ERP", mark: "API", status: "بنية API" },
+      ],
+      operations: ["التأكيد", "المخزون", "Fulfillment", "التوزيع", "التوصيل", "COD", "المرتجعات"],
+      universalTitle: "واجهة API موحدة للأنظمة المملوكة",
+      universalBody:
+        "اربط CRM أو ERP أو اللوحة الخلفية أو marketplace أو تطبيقك التشغيلي ببنية NOKI عبر API وwebhooks وpostbacks آمنة.",
+      plannedStatus: "بنية مخططة",
+      postbacksTitle: "مثال لمسار postback",
+      postbacksNote: "وأحداث تشغيلية إضافية حسب الصلاحيات وإعدادات التكامل.",
+      postbackEvents: ["تم استلام الطلب", "تم التأكيد", "قيد التوصيل", "تم التسليم", "تمت المطابقة"],
+      capabilitiesTitle: "قدرات تقنية مخططة",
+      capabilities: [
+        { title: "الأمان", items: ["توقيعات", "Webhooks واردة مضبوطة"] },
+        { title: "الاعتمادية", items: ["Idempotence", "إعادات محاولة مضبوطة"] },
+        { title: "المواءمة", items: ["مواءمة الحالات", "مواءمة الحقول"] },
+        { title: "المراقبة", items: ["API موثقة", "سجلات التكامل"] },
+        { title: "بيانات الاعتماد", items: ["Scopes مخصصة", "تدوير وإلغاء"] },
+        { title: "إعادة التشغيل", items: ["سجل المحاولات", "Replay للأحداث الفاشلة"] },
       ],
     },
     cycle: {
