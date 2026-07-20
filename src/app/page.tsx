@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+import { CycleTimeline } from "@/components/site/CycleTimeline";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
 import { ModulesShowcase } from "@/components/site/ModulesShowcase";
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero language={language} />
         <WhyNoki language={language} />
         <ModulesShowcase language={language} />
+        <CycleTimeline language={language} />
       </main>
     </div>
   );

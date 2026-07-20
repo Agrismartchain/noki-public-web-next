@@ -888,6 +888,130 @@ a:focus-visible {
   text-decoration: none;
 }
 
+.noki-cycle {
+  padding: 60px 40px 110px;
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-bg-soft);
+}
+
+.noki-cycle-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.noki-cycle-intro {
+  max-width: 640px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.noki-cycle-intro h6 {
+  margin: 0 0 10px;
+  color: var(--color-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noki-cycle-intro h2 {
+  margin: 0 0 14px;
+  font-family: var(--active-font-heading);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.noki-cycle-intro p {
+  margin: 0;
+  color: rgba(238, 241, 250, 0.68);
+  font-size: 15.5px;
+  line-height: 1.55;
+}
+
+.noki-cycle-timeline {
+  position: relative;
+}
+
+.noki-cycle-line {
+  position: absolute;
+  top: 38px;
+  left: 0;
+  overflow: visible;
+}
+
+.noki-cycle-line-progress {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 0;
+}
+
+.noki-cycle-steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.noki-cycle-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.noki-cycle-orb {
+  position: relative;
+  display: flex;
+  width: 76px;
+  height: 76px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  border: 1.5px solid var(--color-divider);
+  border-radius: 50%;
+  background: var(--color-surface);
+}
+
+.noki-cycle-pulse {
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(255, 213, 0, 0.25);
+  border-radius: 50%;
+}
+
+.noki-cycle-icon {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-300);
+}
+
+.noki-cycle-icon svg {
+  display: block;
+}
+
+.noki-cycle-number {
+  margin-bottom: 4px;
+  color: var(--color-accent);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.noki-cycle-label {
+  font-family: var(--active-font-heading);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
 @media (hover: hover) {
   .noki-navlink:hover {
     background: var(--color-accent);
@@ -958,6 +1082,24 @@ a:focus-visible {
     }
   }
 
+  @keyframes pulseRing {
+    0% {
+      opacity: 0.9;
+      transform: scale(0.6);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(2.6);
+    }
+  }
+
+  @keyframes dash {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
   .noki-navlink {
     transition:
       background 0.25s ease,
@@ -999,6 +1141,15 @@ a:focus-visible {
       background 0.4s ease,
       color 0.4s ease;
   }
+
+  .noki-cycle-line-progress {
+    stroke-dashoffset: 1200;
+    animation: dash 2.4s ease forwards;
+  }
+
+  .noki-cycle-pulse {
+    animation: pulseRing 2.6s ease-out infinite;
+  }
 }
 
 @media (max-width: 1080px) {
@@ -1012,6 +1163,21 @@ a:focus-visible {
 }
 
 @media (max-width: 900px) {
+  .noki-cycle {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .noki-cycle-timeline {
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+
+  .noki-cycle-line,
+  .noki-cycle-steps {
+    min-width: 1040px;
+  }
+
   .noki-modules {
     padding-right: 24px;
     padding-left: 24px;

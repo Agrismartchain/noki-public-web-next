@@ -55,6 +55,12 @@ export const SITE_COPY: Record<
         bullets: string[];
       }[];
     };
+    cycle: {
+      kicker: string;
+      title: string;
+      body: string;
+      steps: string[];
+    };
   }
 > = {
   fr: {
@@ -173,6 +179,21 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    cycle: {
+      kicker: "Cycle complet",
+      title: "De la commande au reversement, une seule ligne.",
+      body: "Chaque commande traverse un parcours structuré, tracé et supervisé de bout en bout.",
+      steps: [
+        "Commande reçue",
+        "Confirmation",
+        "Stock réservé",
+        "Préparation",
+        "Dispatch",
+        "Livraison",
+        "Rapprochement COD",
+        "Reversement",
+      ],
+    },
   },
   en: {
     nav: {
@@ -264,6 +285,21 @@ export const SITE_COPY: Record<
         },
       ],
     },
+    cycle: {
+      kicker: "Full cycle",
+      title: "From order to reversal, one single line.",
+      body: "Every order follows a structured path, tracked and supervised end to end.",
+      steps: [
+        "Order received",
+        "Confirmation",
+        "Stock reserved",
+        "Preparation",
+        "Dispatch",
+        "Delivery",
+        "COD reconciliation",
+        "Reversal",
+      ],
+    },
   },
   ar: {
     nav: {
@@ -353,6 +389,21 @@ export const SITE_COPY: Record<
           desc: "مهام متكررة مدعومة، تخضع دائمًا للتحقق البشري.",
           bullets: ["مهام متكررة مدعومة", "اقتراحات خاضعة للتحقق", "لا إجراء تلقائي دون موافقة"],
         },
+      ],
+    },
+    cycle: {
+      kicker: "الدورة الكاملة",
+      title: "من الطلب إلى التسوية، في خط واحد.",
+      body: "يمر كل طلب بمسار منظم، مُتتبَّع وخاضع للإشراف من البداية إلى النهاية.",
+      steps: [
+        "استلام الطلب",
+        "التأكيد",
+        "حجز المخزون",
+        "التحضير",
+        "التوزيع",
+        "التوصيل",
+        "تسوية النقد",
+        "التسوية النهائية",
       ],
     },
   },
