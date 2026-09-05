@@ -2,6 +2,7 @@
   "name": "noki-public-web-next",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@10.23.0",
   "engines": {
     "node": ">=24 <25",
@@ -13,21 +14,31 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "check": "pnpm lint && pnpm typecheck && pnpm build"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
   },
   "dependencies": {
     "d3": "7.9.0",
+    "leaflet": "1.9.4",
     "next": "16.2.10",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "topojson-client": "3.1.0"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "7.0.0",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/leaflet": "1.9.22",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "6.0.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
-    "typescript": "^5"
+    "jsdom": "29.1.1",
+    "typescript": "^5",
+    "vitest": "4.1.10"
   }
 }

@@ -1,0 +1,300 @@
+/*
+ * Self-contained stylesheet for the public trip-tracking page. Deliberately
+ * kept separate from the marketing site's globals.css -- this page is
+ * opened from WhatsApp/SMS on a bare mobile browser and has no reason to
+ * pay for the marketing site's fonts/layout weight. Only the brand color
+ * tokens are shared (copied from src/app/globals.css :root).
+ */
+
+:root {
+  --track-bg: #050810;
+  --track-surface: #0f1730;
+  --track-surface-2: #141d3d;
+  --track-text: #eef1fa;
+  --track-text-muted: #9aa3c0;
+  --track-accent: #ffd500;
+  --track-accent-ink: #0b0d05;
+  --track-divider: rgba(255, 255, 255, 0.09);
+  --track-danger: #ff6b6b;
+  --track-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.track * {
+  box-sizing: border-box;
+}
+
+.track {
+  min-height: 100dvh;
+  background: var(--track-bg);
+  color: var(--track-text);
+  font-family: var(--track-font);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+.track-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 1.1rem 0.8rem;
+}
+
+.track-logo {
+  height: 28px;
+  width: auto;
+}
+
+.track-header h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.track-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0 1.1rem 1.25rem;
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.track-card {
+  background: var(--track-surface);
+  border: 1px solid var(--track-divider);
+  border-radius: 16px;
+  padding: 1rem 1.1rem;
+}
+
+.track-status-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.track-status-main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.track-service-type {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--track-accent);
+}
+
+.track-status-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.track-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: var(--track-surface-2);
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.track-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--track-text-muted);
+  flex-shrink: 0;
+}
+
+.track-badge[data-live="true"] .track-badge-dot {
+  background: #43d17a;
+  box-shadow: 0 0 0 0 rgba(67, 209, 122, 0.6);
+  animation: track-pulse 1.8s infinite;
+}
+
+@keyframes track-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(67, 209, 122, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(67, 209, 122, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(67, 209, 122, 0);
+  }
+}
+
+.track-meta {
+  margin-top: 0.65rem;
+  font-size: 0.82rem;
+  color: var(--track-text-muted);
+}
+
+.track-reconnect {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--track-accent);
+}
+
+.track-map-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--track-divider);
+  background: var(--track-surface);
+  height: 46vh;
+  min-height: 260px;
+}
+
+.track-map-empty {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--track-text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.track-driver-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.track-driver-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--track-accent);
+  color: var(--track-accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.track-driver-name {
+  font-weight: 600;
+}
+
+.track-driver-vehicle {
+  font-size: 0.82rem;
+  color: var(--track-text-muted);
+}
+
+.track-centered {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 2rem 1.5rem;
+}
+
+.track-centered h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.track-centered p {
+  margin: 0;
+  color: var(--track-text-muted);
+  font-size: 0.92rem;
+  max-width: 32ch;
+}
+
+.track-spinner {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 3px solid var(--track-divider);
+  border-top-color: var(--track-accent);
+  animation: track-spin 0.8s linear infinite;
+}
+
+@keyframes track-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.track-retry-btn {
+  appearance: none;
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  background: var(--track-accent);
+  color: var(--track-accent-ink);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.track-retry-btn:focus-visible {
+  outline: 2px solid var(--track-accent);
+  outline-offset: 2px;
+}
+
+.track-skeleton-line {
+  height: 0.9rem;
+  border-radius: 6px;
+  background: var(--track-surface-2);
+  overflow: hidden;
+  position: relative;
+}
+
+.track-skeleton-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  animation: track-shimmer 1.4s infinite;
+}
+
+@keyframes track-shimmer {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.track-footer {
+  padding: 0.9rem 1.1rem 1.4rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--track-text-muted);
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.track-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--track-accent);
+  border: 3px solid #0b0d05;
+  box-shadow: 0 0 0 4px rgba(255, 213, 0, 0.25);
+}
+
+@media (min-width: 640px) {
+  .track-main {
+    padding-top: 0.5rem;
+  }
+}
