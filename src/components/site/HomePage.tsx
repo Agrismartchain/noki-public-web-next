@@ -10,13 +10,11 @@ import { FinalCta } from "@/components/site/FinalCta";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { Hero } from "@/components/site/Hero";
-import { IdjorWidget } from "@/components/site/IdjorWidget";
 import { IntegrationsSection } from "@/components/site/IntegrationsSection";
 import { useSiteLanguage } from "@/components/site/LanguageProvider";
 import { MobileFriendlySection } from "@/components/site/MobileFriendlySection";
 import { ModulesShowcase } from "@/components/site/ModulesShowcase";
 import { SecurityGovernance } from "@/components/site/SecurityGovernance";
-import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { WhyNoki } from "@/components/site/WhyNoki";
 
 export function HomePage() {
@@ -36,13 +34,11 @@ export function HomePage() {
         <SecurityGovernance language={language} />
         <AfricaMarketsMap language={language} />
         <BenefitsGrid language={language} />
-        <TestimonialsSection language={language} />
         <FaqSection language={language} />
         <MobileFriendlySection language={language} />
         <FinalCta language={language} />
       </main>
       <Footer language={language} />
-      <IdjorWidget language={language} key={language} />
     </div>
   );
 }

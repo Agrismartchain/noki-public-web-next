@@ -155,28 +155,6 @@ export const SITE_COPY: Record<
         desc: string;
       }[];
     };
-    testimonials: {
-      kicker: string;
-      title: string;
-      titleAccent: string;
-      body: string;
-      exampleTag: string;
-      featuredQuote: string;
-      tag1: string;
-      tag2: string;
-      stat1Label: string;
-      stat2Label: string;
-      featuredName: string;
-      featuredRole: string;
-      stat3: string;
-      stat4: string;
-      stat5: string;
-      items: {
-        quote: string;
-        name: string;
-        role: string;
-      }[];
-    };
     faq: {
       kicker: string;
       title: string;
@@ -515,37 +493,6 @@ export const SITE_COPY: Record<
         { title: "Coordination", desc: "Des équipes alignées sur un même référentiel opérationnel." },
         { title: "Gouvernance", desc: "Une structure de validation pensée pour la confiance." },
         { title: "Évolutivité", desc: "Une architecture adaptable aux marchés ciblés." },
-      ],
-    },
-    testimonials: {
-      kicker: "La parole aux équipes terrain",
-      title: "Pas juste des promesses.",
-      titleAccent: "De vrais retours d'équipes.",
-      body: "Exemples illustratifs — les témoignages réels seront intégrés depuis notre base à venir.",
-      exampleTag: "Exemple illustratif",
-      featuredQuote:
-        "« Depuis qu'on centralise nos commandes et notre cash sur une seule plateforme, on a arrêté de courir après les reversements. »",
-      tag1: "✓ Cash réconcilié plus vite",
-      tag2: "✓ Une seule interface",
-      stat1Label: "TEMPS DE RAPPROCHEMENT",
-      stat2Label: "PLATEFORME UNIQUE",
-      featuredName: "Aïcha K.",
-      featuredRole: "Responsable opérations, e-commerce — Abidjan",
-      stat3: "NOTE MOYENNE (exemple)",
-      stat4: "AVIS PUBLICS (à venir)",
-      stat5: "RÉTENTION (à venir)",
-      items: [
-        {
-          quote: "« La visibilité sur le stock nous a évité pas mal de ruptures pendant les pics de commandes. »",
-          name: "Youssef D.",
-          role: "Fondateur, boutique en ligne — Dakar",
-        },
-        {
-          quote:
-            "« L'équipe livraison a enfin une vue claire sur les statuts, sans passer par trois outils différents. »",
-          name: "Marie C.",
-          role: "Cheffe des opérations — Douala",
-        },
       ],
     },
     faq: {
@@ -891,36 +838,6 @@ export const SITE_COPY: Record<
         { title: "Scalability", desc: "An architecture adaptable to target markets." },
       ],
     },
-    testimonials: {
-      kicker: "From teams on the ground",
-      title: "Not just promises.",
-      titleAccent: "Real feedback from teams.",
-      body: "Illustrative examples — real testimonials will be integrated from our database soon.",
-      exampleTag: "Illustrative example",
-      featuredQuote:
-        "\u201cSince we centralized our orders and cash on a single platform, we stopped chasing reversals.\u201d",
-      tag1: "✓ Cash reconciled faster",
-      tag2: "✓ One single interface",
-      stat1Label: "RECONCILIATION TIME",
-      stat2Label: "SINGLE PLATFORM",
-      featuredName: "Aïcha K.",
-      featuredRole: "Operations lead, e-commerce — Abidjan",
-      stat3: "AVERAGE RATING (example)",
-      stat4: "PUBLIC REVIEWS (coming)",
-      stat5: "RETENTION (coming)",
-      items: [
-        {
-          quote: "\u201cStock visibility saved us from quite a few stockouts during order peaks.\u201d",
-          name: "Youssef D.",
-          role: "Founder, online store — Dakar",
-        },
-        {
-          quote: "\u201cThe delivery team finally has a clear view of statuses, without juggling three different tools.\u201d",
-          name: "Marie C.",
-          role: "Head of Operations — Douala",
-        },
-      ],
-    },
     faq: {
       kicker: "Frequently asked questions",
       title: "Everything you need to know",
@@ -1261,35 +1178,6 @@ export const SITE_COPY: Record<
         { title: "التنسيق", desc: "فرق متناسقة حول مرجع تشغيلي واحد." },
         { title: "الحوكمة", desc: "بنية تحقق مصمّمة لبناء الثقة." },
         { title: "قابلية التوسع", desc: "بنية قابلة للتكيّف مع الأسواق المستهدفة." },
-      ],
-    },
-    testimonials: {
-      kicker: "كلمة الفرق الميدانية",
-      title: "ليست مجرد وعود.",
-      titleAccent: "آراء حقيقية من الفرق.",
-      body: "أمثلة توضيحية — سيتم دمج الشهادات الحقيقية قريبًا من قاعدة بياناتنا.",
-      exampleTag: "مثال توضيحي",
-      featuredQuote: "«منذ أن مركزنا طلباتنا ونقدنا في منصة واحدة، توقفنا عن ملاحقة التسويات.»",
-      tag1: "✓ تسوية نقدية أسرع",
-      tag2: "✓ واجهة واحدة",
-      stat1Label: "وقت التسوية",
-      stat2Label: "منصة واحدة",
-      featuredName: "عائشة ك.",
-      featuredRole: "مسؤولة العمليات، متجر إلكتروني — أبيدجان",
-      stat3: "التقييم المتوسط (مثال)",
-      stat4: "التقييمات العامة (قريبًا)",
-      stat5: "معدل الاحتفاظ (قريبًا)",
-      items: [
-        {
-          quote: "«الرؤية الواضحة على المخزون جنّبتنا الكثير من حالات النفاد خلال ذروة الطلبات.»",
-          name: "يوسف د.",
-          role: "مؤسس متجر إلكتروني — داكار",
-        },
-        {
-          quote: "«أصبح لفريق التوصيل أخيرًا رؤية واضحة على الحالات، دون التنقل بين ثلاث أدوات مختلفة.»",
-          name: "ماري ك.",
-          role: "رئيسة العمليات — دوالا",
-        },
       ],
     },
     faq: {

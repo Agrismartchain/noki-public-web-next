@@ -278,3 +278,36 @@ export const FORM_LABELS = {
 export function labelFor(labels: Record<Language, string>, language: Language) {
   return labels[language];
 }
+
+// Outcome copy for the public intake forms. "sent" is shown only after the
+// NOKI API acknowledged the request (HTTP 201); every other state is a
+// truthful failure and the visitor's data is not claimed to be saved.
+export const SUBMIT_COPY = {
+  fr: {
+    sending: "Envoi en cours…",
+    sentTitle: "Demande transmise",
+    sentBody: "Votre demande a bien été enregistrée. L’équipe NOKI SERVICE reviendra vers vous.",
+    failedTitle: "Envoi impossible",
+    failedBody: "Votre demande n’a pas pu être transmise et n’a pas été enregistrée. Réessayez dans quelques instants.",
+    validationBody: "Certaines informations ont été refusées. Vérifiez le formulaire puis réessayez.",
+    rateLimitedBody: "Trop de tentatives. Patientez quelques minutes avant de réessayer.",
+  },
+  en: {
+    sending: "Sending…",
+    sentTitle: "Request submitted",
+    sentBody: "Your request has been recorded. The NOKI SERVICE team will get back to you.",
+    failedTitle: "Could not send",
+    failedBody: "Your request could not be delivered and was not saved. Please try again in a moment.",
+    validationBody: "Some information was rejected. Check the form and try again.",
+    rateLimitedBody: "Too many attempts. Please wait a few minutes before trying again.",
+  },
+  ar: {
+    sending: "جارٍ الإرسال…",
+    sentTitle: "تم إرسال الطلب",
+    sentBody: "تم تسجيل طلبك. سيعود إليك فريق NOKI SERVICE.",
+    failedTitle: "تعذر الإرسال",
+    failedBody: "تعذر إرسال طلبك ولم يتم حفظه. حاول مرة أخرى بعد قليل.",
+    validationBody: "تم رفض بعض المعلومات. راجع النموذج ثم أعد المحاولة.",
+    rateLimitedBody: "محاولات كثيرة. انتظر بضع دقائق قبل إعادة المحاولة.",
+  },
+} as const;

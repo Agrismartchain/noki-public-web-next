@@ -16,7 +16,10 @@ import {
 } from "@/components/forms/NokiFormControls";
 
 import type { Language } from "./content";
-import { CONVERSION_COPY, FORM_LABELS, labelFor } from "./conversionContent";
+import { newIdempotencyKey, submitIntake } from "@/lib/intake/client";
+import { buildMerchantPayload } from "@/lib/intake/payloads";
+import { CONVERSION_COPY, FORM_LABELS, SUBMIT_COPY, labelFor } from "./conversionContent";
+import { noticeBody, noticeTitle, type SubmitStatus } from "./submitNotice";
 import {
   API_CAPABILITY_CHOICES,
   COD_SHARE_CHOICES,
@@ -261,7 +264,9 @@ export function MerchantOnboarding() {
   const [form, setForm] = useState<MerchantFormState>(() => createEmptyMerchantForm(language));
   const [errors, setErrors] = useState<MerchantErrors>({});
   const [step, setStep] = useState(0);
-  const [status, setStatus] = useState<"idle" | "invalid" | "blocked">("idle");
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [idempotencyKey, setIdempotencyKey] = useState(newIdempotencyKey);
+  const submitCopy = SUBMIT_COPY[language];
 
   const options = useMemo(
     () => ({
@@ -413,11 +418,15 @@ export function MerchantOnboarding() {
     });
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (status === "sending") {
+      return;
+    }
+
     if (form.websiteConfirm.trim()) {
-      setStatus("blocked");
+      setStatus("unavailable");
       return;
     }
 
@@ -432,7 +441,14 @@ export function MerchantOnboarding() {
       return;
     }
 
-    setStatus("blocked");
+    setStatus("sending");
+    const outcome = await submitIntake("merchant", buildMerchantPayload(form, language), idempotencyKey);
+    setStatus(outcome);
+    if (outcome === "sent") {
+      setForm(createEmptyMerchantForm(language));
+      setStep(0);
+      setIdempotencyKey(newIdempotencyKey());
+    }
   }
 
   const stepper = (
@@ -525,9 +541,9 @@ export function MerchantOnboarding() {
         </div>
 
         {status !== "idle" ? (
-          <div className="noki-form-notice" data-tone={status} role="alert">
-            <strong>{status === "invalid" ? (local.invalid as string) : (local.blockedTitle as string)}</strong>
-            <span>{status === "invalid" ? (local.invalid as string) : copy.common.unavailable}</span>
+          <div className="noki-form-notice" data-tone={status === "sent" ? "success" : status} role={status === "sent" ? "status" : "alert"}>
+            <strong>{noticeTitle(status, submitCopy, local.invalid as string)}</strong>
+            <span>{noticeBody(status, submitCopy, local.invalid as string)}</span>
           </div>
         ) : null}
 

@@ -2,10 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { FormEvent } from "react";
-import { useState } from "react";
-
-import { CheckboxField, TextInput, focusFirstInvalid, isValidEmail } from "@/components/forms/NokiFormControls";
 import { localizedPath } from "@/lib/seo/i18n";
 
 import { LANGUAGES } from "./content";
@@ -14,64 +10,26 @@ import { useSiteLanguage } from "./LanguageProvider";
 
 const LOGIN_LOCAL_COPY = {
   fr: {
-    invalid: "Renseignez les champs requis avant de continuer.",
+    portalBody: "Vous serez redirigé vers le portail marchand NOKI pour vous authentifier.",
     eyebrow: "Espace marchand",
   },
   en: {
-    invalid: "Fill the required fields before continuing.",
+    portalBody: "You will be redirected to the NOKI merchant portal to sign in.",
     eyebrow: "Merchant space",
   },
   ar: {
-    invalid: "أكمل الحقول المطلوبة قبل المتابعة.",
+    portalBody: "ستتم إعادة توجيهك إلى بوابة التاجر في NOKI لتسجيل الدخول.",
     eyebrow: "مساحة التاجر",
   },
 };
 
-export function LoginForm() {
+export function LoginForm({ portalUrl }: { portalUrl: string | null }) {
   const { language, direction, setLanguage } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = LOGIN_LOCAL_COPY[language];
   const homeHref = localizedPath(language);
   const registerHref = localizedPath(language, "/register");
   const contactHref = localizedPath(language, "/contact");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
-  const [websiteConfirm, setWebsiteConfirm] = useState("");
-  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
-  const [status, setStatus] = useState<"idle" | "invalid" | "blocked">("idle");
-
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (websiteConfirm.trim()) {
-      setStatus("blocked");
-      return;
-    }
-
-    const nextErrors: { email?: string; password?: string } = {};
-
-    if (!email.trim()) {
-      nextErrors.email = copy.common.required;
-    } else if (!isValidEmail(email)) {
-      nextErrors.email = copy.common.invalidEmail;
-    }
-
-    if (!password.trim()) {
-      nextErrors.password = copy.common.required;
-    }
-
-    setErrors(nextErrors);
-
-    if (Object.keys(nextErrors).length) {
-      setStatus("invalid");
-      focusFirstInvalid();
-      return;
-    }
-
-    setStatus("blocked");
-  }
-
   return (
     <main className="noki-login-page" dir={direction}>
       <section className="noki-login-visual" aria-label={local.eyebrow}>
@@ -103,70 +61,32 @@ export function LoginForm() {
           </div>
         </header>
 
-        <form className="noki-login-card" onSubmit={onSubmit} noValidate>
+        <div className="noki-login-card">
           <div className="noki-login-card-logo">
             <Image src="/assets/brand/noki-logo-yellow.png" alt="NOKI Service" width={46} height={46} unoptimized />
           </div>
           <h2 id="noki-login-title">{copy.login.cardTitle}</h2>
-          <p>{copy.login.cardBody}</p>
-
-          {status !== "idle" ? (
-            <div className="noki-form-notice" data-tone={status} role="alert">
-              <strong>{status === "invalid" ? local.invalid : copy.login.unavailable}</strong>
-              <span>{status === "invalid" ? local.invalid : copy.login.unavailable}</span>
-            </div>
-          ) : null}
-
-          <div className="noki-honeypot" aria-hidden="true">
-            <TextInput
-              name="loginWebsiteConfirm"
-              label={copy.common.honeypot}
-              value={websiteConfirm}
-              onChange={setWebsiteConfirm}
-              autoComplete="off"
-            />
-          </div>
-
-          <TextInput
-            name="loginEmail"
-            label={copy.login.email}
-            value={email}
-            onChange={(value) => {
-              setEmail(value);
-              setErrors((current) => ({ ...current, email: undefined }));
-              setStatus("idle");
-            }}
-            required
-            error={errors.email}
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-          />
-          <TextInput
-            name="loginPassword"
-            label={copy.login.password}
-            value={password}
-            onChange={(value) => {
-              setPassword(value);
-              setErrors((current) => ({ ...current, password: undefined }));
-              setStatus("idle");
-            }}
-            required
-            error={errors.password}
-            type="password"
-            autoComplete="current-password"
-          />
-          <CheckboxField name="loginRemember" label={copy.login.remember} checked={remember} onChange={setRemember} />
-
-          <button className="noki-form-submit" type="submit">
-            {copy.login.submit}
-          </button>
+          {portalUrl ? (
+            <>
+              <p>{local.portalBody}</p>
+              <a className="noki-form-submit" href={portalUrl} rel="noopener">
+                {copy.login.submit}
+              </a>
+            </>
+          ) : (
+            <>
+              <p>{copy.login.cardBody}</p>
+              <div className="noki-form-notice" data-tone="invalid" role="status">
+                <strong>{copy.login.unavailable}</strong>
+              </div>
+            </>
+          )}
 
           <div className="noki-login-links">
             <Link href={registerHref}>{copy.login.register}</Link>
             <Link href={contactHref}>{copy.login.contact}</Link>
           </div>
-        </form>
+        </div>
       </section>
     </main>
   );

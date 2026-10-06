@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
+import { buildSecurityHeaders } from "./src/lib/security/headers";
+
 const nextConfig: NextConfig = {
   output: "standalone",
+  poweredByHeader: false,
+  async headers() {
+    return [{ source: "/:path*", headers: buildSecurityHeaders({ imgSrc: ["https:"], indexable: true }) }];
+  },
   async redirects() {
     return [
       {

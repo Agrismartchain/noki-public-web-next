@@ -13,10 +13,12 @@ import {
   isValidEmail,
   isValidUrl,
 } from "@/components/forms/NokiFormControls";
+import { newIdempotencyKey, submitIntake } from "@/lib/intake/client";
+import { buildLeadPayload } from "@/lib/intake/payloads";
 import { localizedPath } from "@/lib/seo/i18n";
 
 import type { Language } from "./content";
-import { CONVERSION_COPY, FORM_LABELS, PRIORITY_COUNTRIES, REQUEST_TYPES, labelFor } from "./conversionContent";
+import { CONVERSION_COPY, FORM_LABELS, SUBMIT_COPY, PRIORITY_COUNTRIES, REQUEST_TYPES, labelFor } from "./conversionContent";
 import {
   API_CAPABILITY_CHOICES,
   CHANNEL_CHOICES,
@@ -34,6 +36,7 @@ import {
   choicesToOptions,
   countryOptions,
 } from "./conversionOptions";
+import { noticeBody, noticeTitle, type SubmitStatus } from "./submitNotice";
 import { ConversionShell } from "./ConversionShell";
 import { useSiteLanguage } from "./LanguageProvider";
 
@@ -200,7 +203,9 @@ export function ContactForm() {
   const local = CONTACT_LOCAL_COPY[language];
   const [form, setForm] = useState<ContactFormState>(() => createEmptyForm(language));
   const [errors, setErrors] = useState<ContactErrors>({});
-  const [status, setStatus] = useState<"idle" | "invalid" | "blocked">("idle");
+  const [status, setStatus] = useState<SubmitStatus>("idle");
+  const [idempotencyKey, setIdempotencyKey] = useState(newIdempotencyKey);
+  const submitCopy = SUBMIT_COPY[language];
 
   const selectOptions = useMemo(
     () => ({
@@ -327,11 +332,15 @@ export function ContactForm() {
     return nextErrors;
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (status === "sending") {
+      return;
+    }
+
     if (form.websiteConfirm.trim()) {
-      setStatus("blocked");
+      setStatus("unavailable");
       return;
     }
 
@@ -344,7 +353,13 @@ export function ContactForm() {
       return;
     }
 
-    setStatus("blocked");
+    setStatus("sending");
+    const outcome = await submitIntake("lead", buildLeadPayload(form, language), idempotencyKey);
+    setStatus(outcome);
+    if (outcome === "sent") {
+      setForm(createEmptyForm(language));
+      setIdempotencyKey(newIdempotencyKey());
+    }
   }
 
   const showDemo = needsDemoQualification(form.requestType);
@@ -366,9 +381,9 @@ export function ContactForm() {
         </div>
 
         {status !== "idle" ? (
-          <div className="noki-form-notice" data-tone={status} role="alert">
-            <strong>{status === "invalid" ? local.invalid : local.submitBlocked}</strong>
-            <span>{status === "invalid" ? local.invalid : copy.common.unavailable}</span>
+          <div className="noki-form-notice" data-tone={status === "sent" ? "success" : status} role={status === "sent" ? "status" : "alert"}>
+            <strong>{noticeTitle(status, submitCopy, local.invalid)}</strong>
+            <span>{noticeBody(status, submitCopy, local.invalid)}</span>
           </div>
         ) : null}
 
