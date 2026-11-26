@@ -35,19 +35,17 @@ export function VendorsPage() {
           <p>{labels.body}</p>
 
           <div className="noki-hub-grid noki-hub-grid-2">
-            <a className="noki-hub-card" href={`${registerBase}?goal=marketplace`}>
+            <a className="noki-hub-card" href={`${registerBase}?goal=marketplace&audience=vendor_marketplace`}>
               <h3>{labels.marketplace.title}</h3>
               <p>{labels.marketplace.desc}</p>
               <span>{labels.marketplace.cta} →</span>
             </a>
-            <a className="noki-hub-card" href={`${registerBase}?goal=logistics`}>
+            <a className="noki-hub-card" href={`${registerBase}?goal=logistics&audience=vendor_cod`}>
               <h3>{labels.logistics.title}</h3>
               <p>{labels.logistics.desc}</p>
               <span>{labels.logistics.cta} →</span>
             </a>
           </div>
-
-          <p className="noki-hub-note">{labels.gapNote}</p>
         </section>
       </main>
       <Footer language={language} />

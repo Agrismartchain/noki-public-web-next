@@ -177,10 +177,11 @@ export type MerchantFormInput = {
   websiteConfirm: string;
 };
 
-export function buildMerchantPayload(form: MerchantFormInput, locale: string): Dict {
+export function buildMerchantPayload(form: MerchantFormInput, locale: string, audienceCategory?: string): Dict {
   return prune({
     locale,
     source: "public-web",
+    audienceCategory,
     contact: prune({
       firstName: form.firstName.trim(),
       lastName: form.lastName.trim(),

@@ -258,14 +258,29 @@ function selectedLabel(value: string, options: { value: string; label: string }[
   return options.find((option) => option.value === value)?.label ?? value;
 }
 
+export type MerchantAudienceCategory =
+  | "restaurant"
+  | "supermarket"
+  | "pharmacy"
+  | "vendor_marketplace"
+  | "vendor_cod";
+
 export type MerchantOnboardingProps = {
   // Campaign deep links (e.g. /register?sector=food from the restaurants
   // landing page) prefill these fields; the visitor can still edit them.
   initialSector?: string;
   initialGoalTag?: "marketplace" | "logistics";
+  // Which audience campaign page this submission came from, if any -- sent
+  // to the API as a reliable top-level field (not inferred from mainGoal's
+  // free text), so a human reviewer doesn't have to read prose to route it.
+  initialAudienceCategory?: MerchantAudienceCategory;
 };
 
-export function MerchantOnboarding({ initialSector, initialGoalTag }: MerchantOnboardingProps = {}) {
+export function MerchantOnboarding({
+  initialSector,
+  initialGoalTag,
+  initialAudienceCategory,
+}: MerchantOnboardingProps = {}) {
   const { language } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = REGISTER_LOCAL_COPY[language];
@@ -455,7 +470,11 @@ export function MerchantOnboarding({ initialSector, initialGoalTag }: MerchantOn
     }
 
     setStatus("sending");
-    const outcome = await submitIntake("merchant", buildMerchantPayload(form, language), idempotencyKey);
+    const outcome = await submitIntake(
+      "merchant",
+      buildMerchantPayload(form, language, initialAudienceCategory),
+      idempotencyKey,
+    );
     setStatus(outcome);
     if (outcome === "sent") {
       setForm(createEmptyMerchantForm(language));

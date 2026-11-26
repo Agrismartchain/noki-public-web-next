@@ -185,8 +185,6 @@ export const AUDIENCE_COPY = {
         desc: "Gardez votre activité actuelle et confiez-nous la livraison et l’encaissement à la livraison.",
         cta: "Démarrer l’inscription",
       },
-      gapNote:
-        "Les deux parcours utilisent aujourd’hui le même formulaire d’inscription e-commerçant ; votre choix est transmis en commentaire pour orienter la bonne équipe.",
     },
     driversHub: {
       kicker: "Chauffeurs & livreurs",
@@ -403,8 +401,6 @@ export const AUDIENCE_COPY = {
         desc: "Keep your current business and let us handle delivery and cash collection.",
         cta: "Start registration",
       },
-      gapNote:
-        "Both journeys currently use the same merchant registration form; your choice is passed along as a comment so the right team can route it.",
     },
     driversHub: {
       kicker: "Drivers & couriers",
@@ -620,7 +616,6 @@ export const AUDIENCE_COPY = {
         desc: "احتفظ بنشاطك الحالي واترك لنا التوصيل وتحصيل النقد عند التسليم.",
         cta: "ابدأ التسجيل",
       },
-      gapNote: "يستخدم المساران حاليًا نفس نموذج تسجيل التاجر؛ يُرسل اختيارك كتعليق لتوجيه الطلب إلى الفريق المناسب.",
     },
     driversHub: {
       kicker: "السائقون وعمال التوصيل",

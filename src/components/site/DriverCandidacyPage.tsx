@@ -5,8 +5,8 @@ import { QuickLeadForm } from "./QuickLeadForm";
 import { useSiteLanguage } from "./LanguageProvider";
 
 const AUDIENCE_PAGE = {
-  taxi: { copyKey: "driversTaxi", page: "/chauffeurs/taxi" },
-  courier: { copyKey: "driversCourier", page: "/chauffeurs/livreur" },
+  taxi: { copyKey: "driversTaxi", page: "/chauffeurs/taxi", requestType: "taxi_driver" },
+  courier: { copyKey: "driversCourier", page: "/chauffeurs/livreur", requestType: "courier" },
 } as const;
 
 type DriverCandidacyPageProps = {
@@ -15,12 +15,12 @@ type DriverCandidacyPageProps = {
 
 export function DriverCandidacyPage({ activity }: DriverCandidacyPageProps) {
   const { language } = useSiteLanguage();
-  const { copyKey, page } = AUDIENCE_PAGE[activity];
+  const { copyKey, page, requestType } = AUDIENCE_PAGE[activity];
   const copy = AUDIENCE_COPY[language][copyKey];
 
   return (
     <QuickLeadForm
-      requestType="other"
+      requestType={requestType}
       page={page}
       roleLabel={copy.roleLabel}
       roleDefault={copy.roleDefault}

@@ -6,14 +6,17 @@ import { AUDIENCE_COPY } from "./audienceContent";
 import { QuickLeadForm } from "./QuickLeadForm";
 import { useSiteLanguage } from "./LanguageProvider";
 
-// Maps each campaign audience onto the existing merchant-onboarding sector
-// enum (SECTOR_CHOICES in conversionOptions.ts) so "Démarrer l'onboarding"
-// pre-fills a real, editable field in /register rather than inventing a new
-// unverified category.
+// Maps each campaign audience onto:
+// - the existing merchant-onboarding sector enum (SECTOR_CHOICES in
+//   conversionOptions.ts), so "Démarrer l'onboarding" pre-fills a real,
+//   editable field in /register rather than inventing a new category there;
+// - the dedicated leads.requestType and merchant-applications.audienceCategory
+//   values noki-api now accepts (phase20f), so the quick-request path and the
+//   full-onboarding path are both categorized reliably, never via free text.
 const AUDIENCE_SECTOR = {
-  restaurants: { sector: "food", page: "/professionnel/restaurants" },
-  supermarkets: { sector: "generalist", page: "/professionnel/supermarches" },
-  pharmacies: { sector: "health", page: "/professionnel/pharmacies" },
+  restaurants: { sector: "food", page: "/professionnel/restaurants", category: "restaurant" },
+  supermarkets: { sector: "generalist", page: "/professionnel/supermarches", category: "supermarket" },
+  pharmacies: { sector: "health", page: "/professionnel/pharmacies", category: "pharmacy" },
 } as const;
 
 type MerchantAudience = keyof typeof AUDIENCE_SECTOR;
@@ -26,12 +29,12 @@ export function MerchantAudiencePage({ audience }: MerchantAudiencePageProps) {
   const { language } = useSiteLanguage();
   const copy = AUDIENCE_COPY[language][audience];
   const common = AUDIENCE_COPY[language].common;
-  const { sector, page } = AUDIENCE_SECTOR[audience];
-  const onboardingHref = `${localizedPath(language, "/register")}?sector=${sector}`;
+  const { sector, page, category } = AUDIENCE_SECTOR[audience];
+  const onboardingHref = `${localizedPath(language, "/register")}?sector=${sector}&audience=${category}`;
 
   return (
     <QuickLeadForm
-      requestType="other"
+      requestType={category}
       page={page}
       roleLabel={copy.roleLabel}
       roleDefault={copy.roleDefault}

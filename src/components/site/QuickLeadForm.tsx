@@ -49,10 +49,13 @@ function isPhone(value: string) {
 }
 
 export type QuickLeadFormProps = {
-  /** Kept within the real contract's requestType enum; "other"/"general"
-   * never trigger the contract's conditional qualification blocks, so this
-   * short form never risks an upstream validation mismatch. */
-  requestType: "general" | "other";
+  /** Kept within the real contract's requestType enum (noki-api
+   * public-intake.constants.ts); none of these trigger the contract's
+   * conditional qualification blocks (demo/commercial/merchant/logistics/
+   * technology/api), so this short form never risks an upstream validation
+   * mismatch. Each value is its own reliable category server-side -- never
+   * inferred from `role` or any other free-text field. */
+  requestType: "general" | "other" | "restaurant" | "supermarket" | "pharmacy" | "taxi_driver" | "courier" | "app_alert";
   /** metadata.page sent to the API, for routing/reporting on the backend. */
   page: string;
   roleLabel: string;

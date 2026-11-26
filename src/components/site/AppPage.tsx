@@ -42,7 +42,7 @@ export function AppPage({ superAppUrl, leadCollectionConfigured }: AppPageProps)
 
   return (
     <QuickLeadForm
-      requestType="general"
+      requestType="app_alert"
       page="/app"
       roleLabel={copy.roleLabel}
       roleDefault={copy.roleDefault}
