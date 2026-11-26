@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-import { localizedPath } from "@/lib/seo/i18n";
+import { codSectionHref, localizedPath } from "@/lib/seo/i18n";
 
 import { LANGUAGES, SITE_COPY } from "./content";
 import { CONVERSION_COPY } from "./conversionContent";
@@ -12,7 +12,7 @@ import { Footer } from "./Footer";
 import { useSiteLanguage } from "./LanguageProvider";
 
 type ConversionShellProps = {
-  mode: "contact" | "register";
+  mode: "contact" | "register" | "quick-lead" | "app";
   kicker?: string;
   title: string;
   body: string;
@@ -37,7 +37,7 @@ export function ConversionShell({ mode, kicker, title, body, benefits, aside, ch
         </Link>
 
         <div className="noki-conversion-topbar-actions">
-          <Link href={`${localizedPath(language)}#modules`}>{nav.services}</Link>
+          <Link href={codSectionHref(language, "modules")}>{nav.services}</Link>
           <Link href={localizedPath(language)}>{common.backHome}</Link>
           <div className="noki-lang-switch" data-lang-switch="" aria-label={common.language}>
             {LANGUAGES.map((lang) => (

@@ -15,6 +15,7 @@ import {
   isValidUrl,
 } from "@/components/forms/NokiFormControls";
 
+import { AUDIENCE_COPY } from "./audienceContent";
 import type { Language } from "./content";
 import { newIdempotencyKey, submitIntake } from "@/lib/intake/client";
 import { buildMerchantPayload } from "@/lib/intake/payloads";
@@ -228,10 +229,12 @@ const REGISTER_LOCAL_COPY = {
 
 const PROGRESS = [16, 33, 50, 66, 83, 100] as const;
 
-function createEmptyMerchantForm(language: Language): MerchantFormState {
+function createEmptyMerchantForm(language: Language, initialSector?: string, initialMainGoal?: string): MerchantFormState {
   return {
     ...EMPTY_MERCHANT_FORM,
     preferredLanguage: language,
+    sector: initialSector ?? "",
+    mainGoal: initialMainGoal ?? "",
   };
 }
 
@@ -255,13 +258,23 @@ function selectedLabel(value: string, options: { value: string; label: string }[
   return options.find((option) => option.value === value)?.label ?? value;
 }
 
-export function MerchantOnboarding() {
+export type MerchantOnboardingProps = {
+  // Campaign deep links (e.g. /register?sector=food from the restaurants
+  // landing page) prefill these fields; the visitor can still edit them.
+  initialSector?: string;
+  initialGoalTag?: "marketplace" | "logistics";
+};
+
+export function MerchantOnboarding({ initialSector, initialGoalTag }: MerchantOnboardingProps = {}) {
   const { language } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = REGISTER_LOCAL_COPY[language];
   const stepNames = local.stepNames as string[];
   const stepBodies = local.stepBodies as string[];
-  const [form, setForm] = useState<MerchantFormState>(() => createEmptyMerchantForm(language));
+  const initialMainGoal = initialGoalTag ? AUDIENCE_COPY[language].vendors[initialGoalTag].title : undefined;
+  const [form, setForm] = useState<MerchantFormState>(() =>
+    createEmptyMerchantForm(language, initialSector, initialMainGoal),
+  );
   const [errors, setErrors] = useState<MerchantErrors>({});
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<SubmitStatus>("idle");

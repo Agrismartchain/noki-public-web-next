@@ -3,7 +3,21 @@ import type { MetadataRoute } from "next";
 import { LOCALES, localizedPath } from "@/lib/seo/i18n";
 import { SITE_URL } from "@/lib/seo/metadata";
 
-const INDEXABLE_ROUTES = ["/", "/contact", "/register"] as const;
+const INDEXABLE_ROUTES = [
+  "/",
+  "/contact",
+  "/register",
+  "/app",
+  "/professionnel",
+  "/professionnel/cod",
+  "/professionnel/restaurants",
+  "/professionnel/supermarches",
+  "/professionnel/pharmacies",
+  "/professionnel/vendeurs",
+  "/chauffeurs",
+  "/chauffeurs/taxi",
+  "/chauffeurs/livreur",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return LOCALES.flatMap((locale) =>

@@ -11,7 +11,21 @@ export const LOCALE_DIRECTIONS = {
   ar: "rtl",
 } as const satisfies Record<Locale, "ltr" | "rtl">;
 
-export type LocalizedRoute = "/" | "/contact" | "/register" | "/login";
+export type LocalizedRoute =
+  | "/"
+  | "/contact"
+  | "/register"
+  | "/login"
+  | "/app"
+  | "/professionnel"
+  | "/professionnel/cod"
+  | "/professionnel/restaurants"
+  | "/professionnel/supermarches"
+  | "/professionnel/pharmacies"
+  | "/professionnel/vendeurs"
+  | "/chauffeurs"
+  | "/chauffeurs/taxi"
+  | "/chauffeurs/livreur";
 
 export function isLocale(value: string | undefined): value is Locale {
   return LOCALES.some((locale) => locale === value);
@@ -46,4 +60,12 @@ export function switchLocaleInPathname(pathname: string, locale: Locale) {
 
 export function homeSectionHref(locale: Locale, id: string, currentPathname?: string) {
   return currentPathname === localizedPath(locale) ? `#${id}` : `${localizedPath(locale)}#${id}`;
+}
+
+// The COD/merchant platform content (modules, cycle, integrations, security,
+// markets, FAQ, etc.) lives on /professionnel/cod, not on the public home
+// anymore. This mirrors homeSectionHref for links that target that page.
+export function codSectionHref(locale: Locale, id: string, currentPathname?: string) {
+  const codPath = localizedPath(locale, "/professionnel/cod");
+  return currentPathname === codPath ? `#${id}` : `${codPath}#${id}`;
 }

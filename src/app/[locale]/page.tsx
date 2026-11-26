@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
 import { HomePage } from "@/components/site/HomePage";
-import { buildPageMetadata, faqJsonLd, organizationJsonLd, renderJsonLd, websiteJsonLd } from "@/lib/seo/metadata";
+import { resolveSuperAppUrl } from "@/lib/links/super-app-url";
+import { buildPageMetadata, organizationJsonLd, renderJsonLd, websiteJsonLd } from "@/lib/seo/metadata";
 import { assertLocale } from "@/lib/seo/i18n";
 
 type LocalizedPageProps = {
@@ -19,16 +20,12 @@ export default async function LocalizedHomePage({ params }: LocalizedPageProps) 
 
   return (
     <>
-      <HomePage />
+      <HomePage superAppUrl={resolveSuperAppUrl()} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: renderJsonLd(organizationJsonLd(currentLocale)) }}
       />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: renderJsonLd(websiteJsonLd()) }} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: renderJsonLd(faqJsonLd(currentLocale)) }}
-      />
     </>
   );
 }

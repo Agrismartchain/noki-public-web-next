@@ -54,7 +54,7 @@ export type LeadFormInput = {
   websiteConfirm: string;
 };
 
-export function buildLeadPayload(form: LeadFormInput, locale: string): Dict {
+export function buildLeadPayload(form: LeadFormInput, locale: string, page = "/contact"): Dict {
   const demo = ["demo", "commercial", "merchant"].includes(form.requestType);
   const partner = ["logistics", "technology"].includes(form.requestType);
   const api = form.requestType === "api";
@@ -121,7 +121,7 @@ export function buildLeadPayload(form: LeadFormInput, locale: string): Dict {
       message: form.message.trim(),
     }),
     consent: { contactConsent: form.contactConsent, marketingConsent: form.marketingConsent },
-    metadata: { source: "public-web", page: "/contact" },
+    metadata: { source: "public-web", page },
     websiteConfirm: opt(form.websiteConfirm),
   });
 }
