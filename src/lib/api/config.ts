@@ -13,3 +13,19 @@ import { parseApiBaseUrl } from "./api-base-url";
 export function resolveApiBaseUrl(): string {
   return parseApiBaseUrl(process.env.NOKI_API_BASE_URL ?? "");
 }
+
+/**
+ * Whether the public lead-collection channel (the real NOKI API, reached
+ * through /api/intake/*) is actually configured. Used to decide whether a
+ * page may offer a signup/alert form at all -- an unconfigured channel means
+ * any submission would fail, so the honest choice is not to show the form
+ * rather than let a visitor fill one in that can never succeed.
+ */
+export function isLeadCollectionConfigured(): boolean {
+  try {
+    resolveApiBaseUrl();
+    return true;
+  } catch {
+    return false;
+  }
+}

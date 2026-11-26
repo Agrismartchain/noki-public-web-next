@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { AppPage } from "@/components/site/AppPage";
+import { isLeadCollectionConfigured } from "@/lib/api/config";
 import { resolveSuperAppUrl } from "@/lib/links/super-app-url";
 import { buildPageMetadata, renderJsonLd, webPageJsonLd } from "@/lib/seo/metadata";
 import { assertLocale } from "@/lib/seo/i18n";
@@ -22,7 +23,7 @@ export default async function LocalizedAppPage({ params }: LocalizedPageProps) {
 
   return (
     <>
-      <AppPage superAppUrl={resolveSuperAppUrl()} />
+      <AppPage superAppUrl={resolveSuperAppUrl()} leadCollectionConfigured={isLeadCollectionConfigured()} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: renderJsonLd(webPageJsonLd(currentLocale, "app")) }}

@@ -9,9 +9,13 @@ import { QuickLeadForm } from "./QuickLeadForm";
 
 type AppPageProps = {
   superAppUrl: string | null;
+  // Whether /api/intake/* actually reaches the real NOKI API. When it
+  // doesn't, no form is shown at all -- a visitor should never be invited to
+  // fill in a signup that is guaranteed to fail.
+  leadCollectionConfigured: boolean;
 };
 
-export function AppPage({ superAppUrl }: AppPageProps) {
+export function AppPage({ superAppUrl, leadCollectionConfigured }: AppPageProps) {
   const { language } = useSiteLanguage();
   const copy = AUDIENCE_COPY[language].app;
   const common = AUDIENCE_COPY[language].common;
@@ -24,6 +28,14 @@ export function AppPage({ superAppUrl }: AppPageProps) {
             {copy.ctaOpen}
           </a>
         </div>
+      </ConversionShell>
+    );
+  }
+
+  if (!leadCollectionConfigured) {
+    return (
+      <ConversionShell mode="app" kicker={copy.kicker} title={copy.noChannelTitle} body={copy.noChannelBody}>
+        {null}
       </ConversionShell>
     );
   }

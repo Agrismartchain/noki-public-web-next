@@ -28,7 +28,7 @@ export const AUDIENCE_COPY = {
       backToHome: "Retour à l’accueil",
       backToProfessional: "Retour à l’espace professionnel",
       backToDrivers: "Retour chauffeurs & livreurs",
-      locationBadge: "Disponible à Brazzaville",
+      locationBadge: "Bientôt à Brazzaville",
       quickFormTitle: "Envoyer une demande",
       quickFormBody: "Un formulaire court. Un conseiller vous recontacte pour la suite.",
       onboardingNote: "Parcours complet en ligne, en six étapes.",
@@ -39,23 +39,23 @@ export const AUDIENCE_COPY = {
       title1: "Toute votre vie quotidienne,",
       titleAccent: "une seule Super App.",
       subtitle:
-        "NOKI réunit vos commandes du quotidien à Brazzaville dans une application unique : vous commandez, vous suivez la livraison en direct, vous payez à la réception.",
+        "NOKI réunira vos commandes du quotidien à Brazzaville dans une application unique, pour commander, suivre la livraison en direct et payer à la réception.",
       ctaOpen: "Ouvrir la Super App",
       ctaNotify: "Recevoir l’alerte de lancement",
-      usagesKicker: "Déjà disponible",
-      usagesTitle: "Ce que vous pouvez déjà faire avec NOKI",
+      usagesKicker: "Prévu au lancement",
+      usagesTitle: "Ce que NOKI vous permettra de faire",
       usages: [
         {
           title: "Commander auprès des commerces partenaires",
-          desc: "Passez commande auprès des restaurants, supermarchés et pharmacies déjà connectés à NOKI.",
+          desc: "Vous pourrez commander auprès des restaurants, supermarchés et pharmacies partenaires à Brazzaville.",
         },
         {
           title: "Suivre votre livraison en direct",
-          desc: "Suivez l’avancée de votre course jusqu’à la remise, avec un lien de suivi public en temps réel.",
+          desc: "Vous pourrez suivre votre course jusqu’à la remise, avec un lien de suivi public en temps réel.",
         },
         {
           title: "Payer à la livraison",
-          desc: "Réglez en cash à la réception, sans avance de fonds en ligne.",
+          desc: "Vous pourrez régler en cash à la réception, sans avance de fonds en ligne.",
         },
       ],
       entriesKicker: "Vous travaillez avec NOKI ?",
@@ -79,6 +79,9 @@ export const AUDIENCE_COPY = {
       unavailableTitle: "Lien de téléchargement non encore publié",
       unavailableBody:
         "Le lien officiel de la Super App n’est pas encore activé sur ce site. Laissez vos coordonnées pour recevoir l’alerte de lancement dès son ouverture à Brazzaville.",
+      noChannelTitle: "Super App en préparation",
+      noChannelBody:
+        "La Super App NOKI est en préparation pour Brazzaville. La collecte de l’alerte de lancement n’est pas encore activée sur ce site ; revenez prochainement.",
       formTitle: "Recevoir l’alerte de lancement",
       formBody: "Un message dès l’ouverture de la Super App dans votre ville.",
       roleLabel: "Je suis",
@@ -243,7 +246,7 @@ export const AUDIENCE_COPY = {
       backToHome: "Back to home",
       backToProfessional: "Back to the professional space",
       backToDrivers: "Back to drivers & couriers",
-      locationBadge: "Available in Brazzaville",
+      locationBadge: "Coming soon to Brazzaville",
       quickFormTitle: "Send a request",
       quickFormBody: "A short form. An advisor will get back to you.",
       onboardingNote: "A complete online journey, in six steps.",
@@ -254,23 +257,23 @@ export const AUDIENCE_COPY = {
       title1: "Your whole day,",
       titleAccent: "one Super App.",
       subtitle:
-        "NOKI brings everyday ordering in Brazzaville into one app: you order, you track your delivery live, you pay on arrival.",
+        "NOKI will bring everyday ordering in Brazzaville into one app, to order, track your delivery live and pay on arrival.",
       ctaOpen: "Open the Super App",
       ctaNotify: "Get the launch alert",
-      usagesKicker: "Already available",
-      usagesTitle: "What you can already do with NOKI",
+      usagesKicker: "Planned for launch",
+      usagesTitle: "What NOKI will let you do",
       usages: [
         {
           title: "Order from partner businesses",
-          desc: "Order from restaurants, supermarkets and pharmacies already connected to NOKI.",
+          desc: "You'll be able to order from partner restaurants, supermarkets and pharmacies in Brazzaville.",
         },
         {
           title: "Track your delivery live",
-          desc: "Follow your order all the way to drop-off with a real-time public tracking link.",
+          desc: "You'll be able to follow your order all the way to drop-off with a real-time public tracking link.",
         },
         {
           title: "Pay on delivery",
-          desc: "Pay cash on arrival, with no online prepayment.",
+          desc: "You'll be able to pay cash on arrival, with no online prepayment.",
         },
       ],
       entriesKicker: "Working with NOKI?",
@@ -294,6 +297,9 @@ export const AUDIENCE_COPY = {
       unavailableTitle: "Download link not published yet",
       unavailableBody:
         "The official Super App link isn’t active on this site yet. Leave your details to get the launch alert as soon as it opens in Brazzaville.",
+      noChannelTitle: "Super App in the works",
+      noChannelBody:
+        "The NOKI Super App is being prepared for Brazzaville. Launch-alert signups aren’t active on this site yet; check back soon.",
       formTitle: "Get the launch alert",
       formBody: "A message as soon as the Super App opens in your city.",
       roleLabel: "I am a",
@@ -458,7 +464,7 @@ export const AUDIENCE_COPY = {
       backToHome: "العودة إلى الرئيسية",
       backToProfessional: "العودة إلى فضاء المحترفين",
       backToDrivers: "العودة إلى السائقين وعمال التوصيل",
-      locationBadge: "متوفر في برازافيل",
+      locationBadge: "قريبًا في برازافيل",
       quickFormTitle: "إرسال طلب",
       quickFormBody: "نموذج قصير. سيتواصل معك مستشار لاحقًا.",
       onboardingNote: "مسار كامل عبر الإنترنت من ست خطوات.",
@@ -468,23 +474,23 @@ export const AUDIENCE_COPY = {
     superApp: {
       title1: "كل حياتك اليومية،",
       titleAccent: "في تطبيق واحد شامل.",
-      subtitle: "يجمع NOKI طلباتك اليومية في برازافيل داخل تطبيق واحد: تطلب، تتبع توصيلك مباشرة، وتدفع عند الاستلام.",
+      subtitle: "سيجمع NOKI طلباتك اليومية في برازافيل داخل تطبيق واحد، للطلب ومتابعة التوصيل مباشرة والدفع عند الاستلام.",
       ctaOpen: "افتح تطبيق NOKI الشامل",
       ctaNotify: "تلقَّ تنبيه الانطلاق",
-      usagesKicker: "متوفر حاليًا",
-      usagesTitle: "ما يمكنك فعله الآن مع NOKI",
+      usagesKicker: "مخطَّط له عند الانطلاق",
+      usagesTitle: "ما سيتيحه لك NOKI",
       usages: [
         {
           title: "الطلب من المتاجر الشريكة",
-          desc: "اطلب من المطاعم والسوبرماركت والصيدليات المتصلة بـ NOKI.",
+          desc: "ستتمكن من الطلب من المطاعم والسوبرماركت والصيدليات الشريكة في برازافيل.",
         },
         {
           title: "تتبع توصيلك مباشرة",
-          desc: "تابع طلبك حتى التسليم عبر رابط تتبع عام في الوقت الفعلي.",
+          desc: "ستتمكن من متابعة طلبك حتى التسليم عبر رابط تتبع عام في الوقت الفعلي.",
         },
         {
           title: "الدفع عند الاستلام",
-          desc: "ادفع نقدًا عند الاستلام، دون أي دفع مسبق عبر الإنترنت.",
+          desc: "ستتمكن من الدفع نقدًا عند الاستلام، دون أي دفع مسبق عبر الإنترنت.",
         },
       ],
       entriesKicker: "تعملون مع NOKI؟",
@@ -508,6 +514,9 @@ export const AUDIENCE_COPY = {
       unavailableTitle: "رابط التحميل غير منشور بعد",
       unavailableBody:
         "الرابط الرسمي لتطبيق NOKI الشامل غير مفعّل بعد على هذا الموقع. اترك معلوماتك لتصلك رسالة عند انطلاقه في برازافيل.",
+      noChannelTitle: "تطبيق NOKI الشامل قيد التحضير",
+      noChannelBody:
+        "تطبيق NOKI الشامل قيد التحضير لبرازافيل. التسجيل لتنبيه الانطلاق غير مفعّل بعد على هذا الموقع؛ عاود الزيارة قريبًا.",
       formTitle: "تلقَّ تنبيه الانطلاق",
       formBody: "رسالة فور انطلاق تطبيق NOKI الشامل في مدينتك.",
       roleLabel: "أنا",
