@@ -2,6 +2,7 @@
 
 import { AUDIENCE_COPY } from "@/components/site/audienceContent";
 import { AudienceEntries } from "@/components/site/AudienceEntries";
+import { SITE_COPY } from "@/components/site/content";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
 import { useSiteLanguage } from "@/components/site/LanguageProvider";
@@ -21,7 +22,7 @@ export function HomePage({ superAppUrl }: HomePageProps) {
     { key: "usages", label: labels.usagesKicker, href: "#usages" },
     { key: "professional", label: labels.entryPro.title, href: localizedPath(language, "/professionnel") },
     { key: "drivers", label: labels.entryDriver.title, href: localizedPath(language, "/chauffeurs") },
-    { key: "contact", label: AUDIENCE_COPY[language].app.kicker, href: localizedPath(language, "/contact") },
+    { key: "contact", label: SITE_COPY[language].nav.contact, href: localizedPath(language, "/contact") },
   ];
 
   const primaryCta = superAppUrl
