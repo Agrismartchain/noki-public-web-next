@@ -15,6 +15,7 @@ import {
   isValidUrl,
 } from "@/components/forms/NokiFormControls";
 
+import { AUDIENCE_COPY } from "./audienceContent";
 import type { Language } from "./content";
 import { newIdempotencyKey, submitIntake } from "@/lib/intake/client";
 import { buildMerchantPayload } from "@/lib/intake/payloads";
@@ -228,10 +229,12 @@ const REGISTER_LOCAL_COPY = {
 
 const PROGRESS = [16, 33, 50, 66, 83, 100] as const;
 
-function createEmptyMerchantForm(language: Language): MerchantFormState {
+function createEmptyMerchantForm(language: Language, initialSector?: string, initialMainGoal?: string): MerchantFormState {
   return {
     ...EMPTY_MERCHANT_FORM,
     preferredLanguage: language,
+    sector: initialSector ?? "",
+    mainGoal: initialMainGoal ?? "",
   };
 }
 
@@ -255,13 +258,38 @@ function selectedLabel(value: string, options: { value: string; label: string }[
   return options.find((option) => option.value === value)?.label ?? value;
 }
 
-export function MerchantOnboarding() {
+export type MerchantAudienceCategory =
+  | "restaurant"
+  | "supermarket"
+  | "pharmacy"
+  | "vendor_marketplace"
+  | "vendor_cod";
+
+export type MerchantOnboardingProps = {
+  // Campaign deep links (e.g. /register?sector=food from the restaurants
+  // landing page) prefill these fields; the visitor can still edit them.
+  initialSector?: string;
+  initialGoalTag?: "marketplace" | "logistics";
+  // Which audience campaign page this submission came from, if any -- sent
+  // to the API as a reliable top-level field (not inferred from mainGoal's
+  // free text), so a human reviewer doesn't have to read prose to route it.
+  initialAudienceCategory?: MerchantAudienceCategory;
+};
+
+export function MerchantOnboarding({
+  initialSector,
+  initialGoalTag,
+  initialAudienceCategory,
+}: MerchantOnboardingProps = {}) {
   const { language } = useSiteLanguage();
   const copy = CONVERSION_COPY[language];
   const local = REGISTER_LOCAL_COPY[language];
   const stepNames = local.stepNames as string[];
   const stepBodies = local.stepBodies as string[];
-  const [form, setForm] = useState<MerchantFormState>(() => createEmptyMerchantForm(language));
+  const initialMainGoal = initialGoalTag ? AUDIENCE_COPY[language].vendors[initialGoalTag].title : undefined;
+  const [form, setForm] = useState<MerchantFormState>(() =>
+    createEmptyMerchantForm(language, initialSector, initialMainGoal),
+  );
   const [errors, setErrors] = useState<MerchantErrors>({});
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState<SubmitStatus>("idle");
@@ -442,7 +470,11 @@ export function MerchantOnboarding() {
     }
 
     setStatus("sending");
-    const outcome = await submitIntake("merchant", buildMerchantPayload(form, language), idempotencyKey);
+    const outcome = await submitIntake(
+      "merchant",
+      buildMerchantPayload(form, language, initialAudienceCategory),
+      idempotencyKey,
+    );
     setStatus(outcome);
     if (outcome === "sent") {
       setForm(createEmptyMerchantForm(language));

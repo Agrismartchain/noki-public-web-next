@@ -1,42 +1,47 @@
 "use client";
 
-import { AiAssistantPreview } from "@/components/site/AiAssistantPreview";
-import { AfricaMarketsMap } from "@/components/site/AfricaMarketsMap";
-import { BenefitsGrid } from "@/components/site/BenefitsGrid";
-import { CourierAppPreview } from "@/components/site/CourierAppPreview";
-import { CycleTimeline } from "@/components/site/CycleTimeline";
-import { FaqSection } from "@/components/site/FaqSection";
-import { FinalCta } from "@/components/site/FinalCta";
+import { AUDIENCE_COPY } from "@/components/site/audienceContent";
+import { AudienceEntries } from "@/components/site/AudienceEntries";
+import { SITE_COPY } from "@/components/site/content";
 import { Footer } from "@/components/site/Footer";
 import { Header } from "@/components/site/Header";
-import { Hero } from "@/components/site/Hero";
-import { IntegrationsSection } from "@/components/site/IntegrationsSection";
 import { useSiteLanguage } from "@/components/site/LanguageProvider";
-import { MobileFriendlySection } from "@/components/site/MobileFriendlySection";
-import { ModulesShowcase } from "@/components/site/ModulesShowcase";
-import { SecurityGovernance } from "@/components/site/SecurityGovernance";
-import { WhyNoki } from "@/components/site/WhyNoki";
+import { SuperAppHero } from "@/components/site/SuperAppHero";
+import { UsagesSection } from "@/components/site/UsagesSection";
+import { localizedPath } from "@/lib/seo/i18n";
 
-export function HomePage() {
+type HomePageProps = {
+  superAppUrl: string | null;
+};
+
+export function HomePage({ superAppUrl }: HomePageProps) {
   const { language, setLanguage } = useSiteLanguage();
+  const labels = AUDIENCE_COPY[language].superApp;
+
+  const links = [
+    { key: "usages", label: labels.usagesKicker, href: "#usages" },
+    { key: "professional", label: labels.entryPro.title, href: localizedPath(language, "/professionnel") },
+    { key: "drivers", label: labels.entryDriver.title, href: localizedPath(language, "/chauffeurs") },
+    { key: "contact", label: SITE_COPY[language].nav.contact, href: localizedPath(language, "/contact") },
+  ];
+
+  const primaryCta = superAppUrl
+    ? { label: labels.ctaOpen, href: superAppUrl }
+    : { label: labels.ctaNotify, href: localizedPath(language, "/app") };
 
   return (
     <div className="site-shell" id="top">
-      <Header language={language} onLanguageChange={setLanguage} />
+      <Header
+        language={language}
+        onLanguageChange={setLanguage}
+        brandHref={localizedPath(language)}
+        links={links}
+        primaryCta={primaryCta}
+      />
       <main className="site-main">
-        <Hero language={language} />
-        <WhyNoki language={language} />
-        <ModulesShowcase language={language} />
-        <IntegrationsSection language={language} />
-        <CycleTimeline language={language} />
-        <AiAssistantPreview language={language} />
-        <CourierAppPreview language={language} />
-        <SecurityGovernance language={language} />
-        <AfricaMarketsMap language={language} />
-        <BenefitsGrid language={language} />
-        <FaqSection language={language} />
-        <MobileFriendlySection language={language} />
-        <FinalCta language={language} />
+        <SuperAppHero language={language} superAppUrl={superAppUrl} />
+        <UsagesSection language={language} />
+        <AudienceEntries language={language} />
       </main>
       <Footer language={language} />
     </div>

@@ -9,13 +9,37 @@ export const SITE_NAME = "NOKI Service";
 export const OG_IMAGE_PATH = "/og/noki-service-og-1200x630.png";
 export const LOGO_PATH = "/assets/brand/noki-logo-yellow.png";
 
-export type SeoPage = "home" | "contact" | "register" | "login";
+export type SeoPage =
+  | "home"
+  | "contact"
+  | "register"
+  | "login"
+  | "app"
+  | "professional"
+  | "cod"
+  | "restaurants"
+  | "supermarkets"
+  | "pharmacies"
+  | "vendors"
+  | "drivers"
+  | "driversTaxi"
+  | "driversCourier";
 
 const pageRoutes = {
   home: "/",
   contact: "/contact",
   register: "/register",
   login: "/login",
+  app: "/app",
+  professional: "/professionnel",
+  cod: "/professionnel/cod",
+  restaurants: "/professionnel/restaurants",
+  supermarkets: "/professionnel/supermarches",
+  pharmacies: "/professionnel/pharmacies",
+  vendors: "/professionnel/vendeurs",
+  drivers: "/chauffeurs",
+  driversTaxi: "/chauffeurs/taxi",
+  driversCourier: "/chauffeurs/livreur",
 } as const satisfies Record<SeoPage, LocalizedRoute>;
 
 const ogLocales = {
@@ -33,19 +57,19 @@ const ogImageAlt = {
 const seoCopy = {
   home: {
     fr: {
-      title: "NOKI Service | Gestion COD & opérations e-commerce en Afrique",
+      title: "NOKI | La Super App de Brazzaville",
       description:
-        "Centralisez commandes, confirmation, stock, livraison, encaissement COD, reversements et gouvernance sur une plateforme pensée pour les opérations e-commerce en Afrique.",
+        "NOKI réunit vos commandes du quotidien à Brazzaville dans une seule application : suivi en direct et paiement à la livraison. Professionnels et chauffeurs/livreurs, retrouvez votre espace dédié.",
     },
     en: {
-      title: "NOKI Service | COD & E-commerce Operations in Africa",
+      title: "NOKI | Brazzaville's Super App",
       description:
-        "Centralize orders, confirmation, inventory, delivery, COD collection, settlements and governance on one platform built for e-commerce operations in Africa.",
+        "NOKI brings everyday ordering in Brazzaville into one app: live tracking and cash on delivery. Businesses and drivers/couriers have their own dedicated space.",
     },
     ar: {
-      title: "NOKI Service | إدارة الدفع عند الاستلام وعمليات التجارة الإلكترونية في أفريقيا",
+      title: "NOKI | التطبيق الشامل لبرازافيل",
       description:
-        "منصة موحدة لإدارة الطلبات والتأكيد والمخزون والتوصيل وتحصيل الدفع عند الاستلام والتسويات والحوكمة لعمليات التجارة الإلكترونية في أفريقيا.",
+        "يجمع NOKI طلباتك اليومية في برازافيل داخل تطبيق واحد: تتبع مباشر ودفع عند الاستلام. للمحترفين وسائقي التوصيل فضاء خاص بهم.",
     },
   },
   contact: {
@@ -94,6 +118,154 @@ const seoCopy = {
     ar: {
       title: "تسجيل الدخول | NOKI Service",
       description: "واجهة تسجيل دخول التاجر إلى NOKI Service.",
+    },
+  },
+  app: {
+    fr: {
+      title: "Télécharger la Super App NOKI | Brazzaville",
+      description:
+        "Ouvrez ou téléchargez la Super App NOKI à Brazzaville : commandez, suivez votre livraison en direct, payez à la livraison.",
+    },
+    en: {
+      title: "Get the NOKI Super App | Brazzaville",
+      description:
+        "Open or download the NOKI Super App in Brazzaville: order, track your delivery live, pay cash on delivery.",
+    },
+    ar: {
+      title: "حمّل تطبيق NOKI الشامل | برازافيل",
+      description: "افتح أو حمّل تطبيق NOKI الشامل في برازافيل: اطلب، تتبع توصيلك مباشرة، ادفع عند الاستلام.",
+    },
+  },
+  professional: {
+    fr: {
+      title: "Espace professionnel | NOKI Service",
+      description:
+        "Restaurants, supermarchés, pharmacies et vendeurs : rejoignez NOKI pour la livraison, le paiement à la livraison et la gestion de vos opérations.",
+    },
+    en: {
+      title: "Professional space | NOKI Service",
+      description:
+        "Restaurants, supermarkets, pharmacies and sellers: join NOKI for delivery, cash on delivery and operations management.",
+    },
+    ar: {
+      title: "فضاء المحترفين | NOKI Service",
+      description: "المطاعم والمتاجر والصيدليات والبائعون: انضموا إلى NOKI للتوصيل والدفع عند الاستلام وإدارة عملياتكم.",
+    },
+  },
+  cod: {
+    fr: {
+      title: "NOKI Service | Gestion COD & opérations e-commerce en Afrique",
+      description:
+        "Centralisez commandes, confirmation, stock, livraison, encaissement COD, reversements et gouvernance sur une plateforme pensée pour les opérations e-commerce en Afrique.",
+    },
+    en: {
+      title: "NOKI Service | COD & E-commerce Operations in Africa",
+      description:
+        "Centralize orders, confirmation, inventory, delivery, COD collection, settlements and governance on one platform built for e-commerce operations in Africa.",
+    },
+    ar: {
+      title: "NOKI Service | إدارة الدفع عند الاستلام وعمليات التجارة الإلكترونية في أفريقيا",
+      description:
+        "منصة موحدة لإدارة الطلبات والتأكيد والمخزون والتوصيل وتحصيل الدفع عند الاستلام والتسويات والحوكمة لعمليات التجارة الإلكترونية في أفريقيا.",
+    },
+  },
+  restaurants: {
+    fr: {
+      title: "Restaurants partenaires | NOKI",
+      description: "Référencez votre restaurant sur NOKI : commandes, livraison et paiement à la livraison à Brazzaville.",
+    },
+    en: {
+      title: "Partner restaurants | NOKI",
+      description: "List your restaurant on NOKI: orders, delivery and cash on delivery in Brazzaville.",
+    },
+    ar: {
+      title: "مطاعم شريكة | NOKI",
+      description: "أضف مطعمك إلى NOKI: الطلبات والتوصيل والدفع عند الاستلام في برازافيل.",
+    },
+  },
+  supermarkets: {
+    fr: {
+      title: "Supermarchés partenaires | NOKI",
+      description: "Vendez vos produits via NOKI : commandes, livraison et paiement à la livraison à Brazzaville.",
+    },
+    en: {
+      title: "Partner supermarkets | NOKI",
+      description: "Sell your products through NOKI: orders, delivery and cash on delivery in Brazzaville.",
+    },
+    ar: {
+      title: "سوبرماركت شريك | NOKI",
+      description: "بيع منتجاتك عبر NOKI: الطلبات والتوصيل والدفع عند الاستلام في برازافيل.",
+    },
+  },
+  pharmacies: {
+    fr: {
+      title: "Pharmacies partenaires | NOKI",
+      description: "Rendez votre pharmacie accessible via NOKI : commandes, livraison et paiement à la livraison à Brazzaville.",
+    },
+    en: {
+      title: "Partner pharmacies | NOKI",
+      description: "Make your pharmacy reachable through NOKI: orders, delivery and cash on delivery in Brazzaville.",
+    },
+    ar: {
+      title: "صيدليات شريكة | NOKI",
+      description: "اجعل صيدليتك متاحة عبر NOKI: الطلبات والتوصيل والدفع عند الاستلام في برازافيل.",
+    },
+  },
+  vendors: {
+    fr: {
+      title: "Vendeurs | NOKI",
+      description:
+        "Vendez sur la marketplace NOKI ou utilisez seulement la livraison et le paiement à la livraison pour votre activité existante.",
+    },
+    en: {
+      title: "Sellers | NOKI",
+      description: "Sell on the NOKI marketplace, or just use delivery and cash on delivery for your existing business.",
+    },
+    ar: {
+      title: "البائعون | NOKI",
+      description: "بيع على سوق NOKI، أو استخدم فقط التوصيل والدفع عند الاستلام لنشاطك الحالي.",
+    },
+  },
+  drivers: {
+    fr: {
+      title: "Chauffeurs & livreurs | NOKI",
+      description: "Devenez chauffeur taxi ou livreur partenaire NOKI à Brazzaville. Déposez votre candidature.",
+    },
+    en: {
+      title: "Drivers & couriers | NOKI",
+      description: "Become a partner taxi driver or courier with NOKI in Brazzaville. Apply now.",
+    },
+    ar: {
+      title: "السائقون وعمال التوصيل | NOKI",
+      description: "كن سائق تاكسي أو عامل توصيل شريكًا لـ NOKI في برازافيل. قدّم طلبك الآن.",
+    },
+  },
+  driversTaxi: {
+    fr: {
+      title: "Candidature chauffeur taxi | NOKI",
+      description: "Déposez votre candidature de chauffeur taxi partenaire NOKI à Brazzaville.",
+    },
+    en: {
+      title: "Taxi driver application | NOKI",
+      description: "Apply to become a partner taxi driver with NOKI in Brazzaville.",
+    },
+    ar: {
+      title: "طلب سائق تاكسي | NOKI",
+      description: "قدّم طلبك لتصبح سائق تاكسي شريكًا لـ NOKI في برازافيل.",
+    },
+  },
+  driversCourier: {
+    fr: {
+      title: "Candidature livreur | NOKI",
+      description: "Déposez votre candidature de livreur partenaire NOKI à Brazzaville.",
+    },
+    en: {
+      title: "Courier application | NOKI",
+      description: "Apply to become a partner courier with NOKI in Brazzaville.",
+    },
+    ar: {
+      title: "طلب عامل توصيل | NOKI",
+      description: "قدّم طلبك لتصبح عامل توصيل شريكًا لـ NOKI في برازافيل.",
     },
   },
 } as const satisfies Record<SeoPage, Record<Locale, { title: string; description: string }>>;

@@ -1,21 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
-import { homeSectionHref, localizedPath } from "@/lib/seo/i18n";
-
 import type { Language } from "./content";
-import { LANGUAGES, SITE_COPY } from "./content";
-
-const NAV_ITEMS = [
-  ["home", "top"],
-  ["services", "modules"],
-  ["how", "cycle"],
-  ["tools", "ia"],
-  ["about", "securite"],
-] as const;
+import { LANGUAGES } from "./content";
 
 const ARIA_COPY = {
   fr: {
@@ -35,20 +24,25 @@ const ARIA_COPY = {
   },
 } as const satisfies Record<Language, Record<string, string>>;
 
+export type HeaderLink = { key: string; label: string; href: string };
+export type HeaderCta = { label: string; href: string };
+
 type HeaderProps = {
   language: Language;
   onLanguageChange: (language: Language) => void;
+  brandHref: string;
+  links: HeaderLink[];
+  primaryCta: HeaderCta;
+  secondaryCta?: HeaderCta;
 };
 
-export function Header({ language, onLanguageChange }: HeaderProps) {
+// Generic site header: each page supplies its own nav links and CTAs, since
+// "home" (consumer Super App) and "/professionnel/cod" (COD platform) point
+// to different destinations for the same visual chrome.
+export function Header({ language, onLanguageChange, brandHref, links, primaryCta, secondaryCta }: HeaderProps) {
   const [navOpen, setNavOpen] = useState(false);
-  const pathname = usePathname() || localizedPath(language);
-  const labels = SITE_COPY[language].nav;
   const aria = ARIA_COPY[language];
   const direction = language === "ar" ? "rtl" : "ltr";
-  const contactHref = localizedPath(language, "/contact");
-  const loginHref = localizedPath(language, "/login");
-  const registerHref = localizedPath(language, "/register");
 
   useEffect(() => {
     if (!navOpen) {
@@ -68,27 +62,26 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
   return (
     <header className="noki-site-header" dir={direction}>
       <div className="noki-header-brand">
-        <div className="noki-header-logo">
-          <Image
-            src="/assets/brand/noki-logo-yellow.png"
-            alt="NOKI Service"
-            width={42}
-            height={42}
-            priority
-            unoptimized
-          />
-        </div>
+        <a className="noki-header-brand-link" href={brandHref} aria-label="NOKI">
+          <div className="noki-header-logo">
+            <Image
+              src="/assets/brand/noki-logo-yellow.png"
+              alt="NOKI"
+              width={42}
+              height={42}
+              priority
+              unoptimized
+            />
+          </div>
+        </a>
       </div>
 
       <nav className="noki-desktop-nav" aria-label={aria.desktop}>
-        {NAV_ITEMS.map(([key, id]) => (
-          <a className="noki-navlink" href={homeSectionHref(language, id, pathname)} key={key}>
-            {labels[key]}
+        {links.map((link) => (
+          <a className="noki-navlink" href={link.href} key={link.key}>
+            {link.label}
           </a>
         ))}
-        <a className="noki-navlink" href={contactHref}>
-          {labels.contact}
-        </a>
       </nav>
 
       <div className="noki-header-actions">
@@ -107,12 +100,14 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
           ))}
         </div>
 
-        <a className="noki-header-login" href={loginHref}>
-          {labels.login}
-        </a>
+        {secondaryCta ? (
+          <a className="noki-header-login" href={secondaryCta.href}>
+            {secondaryCta.label}
+          </a>
+        ) : null}
 
-        <a className="noki-header-cta" href={registerHref}>
-          {labels.cta}
+        <a className="noki-header-cta" href={primaryCta.href}>
+          {primaryCta.label}
         </a>
 
         <button
@@ -131,19 +126,18 @@ export function Header({ language, onLanguageChange }: HeaderProps) {
 
       {navOpen ? (
         <nav className="noki-mobile-menu" id="noki-mobile-menu" aria-label={aria.mobile}>
-          {NAV_ITEMS.map(([key, id]) => (
-            <a className="noki-navlink" href={homeSectionHref(language, id, pathname)} key={key} onClick={() => setNavOpen(false)}>
-              {labels[key]}
+          {links.map((link) => (
+            <a className="noki-navlink" href={link.href} key={link.key} onClick={() => setNavOpen(false)}>
+              {link.label}
             </a>
           ))}
-          <a className="noki-navlink" href={contactHref} onClick={() => setNavOpen(false)}>
-            {labels.contact}
-          </a>
-          <a className="noki-navlink" href={loginHref} onClick={() => setNavOpen(false)}>
-            {labels.login}
-          </a>
-          <a className="noki-navlink noki-mobile-register-link" href={registerHref} onClick={() => setNavOpen(false)}>
-            {labels.cta}
+          {secondaryCta ? (
+            <a className="noki-navlink" href={secondaryCta.href} onClick={() => setNavOpen(false)}>
+              {secondaryCta.label}
+            </a>
+          ) : null}
+          <a className="noki-navlink noki-mobile-register-link" href={primaryCta.href} onClick={() => setNavOpen(false)}>
+            {primaryCta.label}
           </a>
         </nav>
       ) : null}
